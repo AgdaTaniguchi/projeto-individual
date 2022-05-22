@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastrar | AvaliaOGame</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html"><img src="images/logo2.png" alt="Logo AvaliaOGame"></a>
+                <ul>
+                    <li><a href="index.html">Página inicial</a></li>
+                    <li><a href="jogos.html">Jogos</a></li>
+                    <li class="aqui" id="menu_sugerir" style="display: none;"><a href="sugerir.html">Sugerir jogos</a></li>
+                    <li id="menu_perfil" style="display: none;"><a id="menu_nome" href="perfil.html"></a></li>
+                    <li id="menu_entrar"><a href="entrar.html">Entrar</a></li>
+                    <li id="menu_cadastrar"><a href="cadastrar.html">Cadastrar</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="sugerir">
+                <div class="formulario">
+                    <h1 style="color: var(--cor1)">Sugira um jogo!</h1>
+                    <div class="box-input">
+                        <label for="nome">Nome do jogo:</label>
+                        <input type="text" id="nome">
+                    </div>
+                    <div class="box-input">
+                        <label for="nomeUsuario">Categoria do jogo:</label>
+                        <select id="categoriasJogos">
+                            <option value="ação">Ação</option>
+                            <option value="puzzle">Puzzle</option>
+                            <option value="fps">FPS</option>
+                            <option value="simulador">Simulador</option>
+                            <option value="naoInclusa">Categoria não inclusa</option>
+                        </select>
+                    </div>
+                    <div class="box-input box-botao">
+                        <button>Fazer sugestão</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Página desenvolvida por <a href="https://github.com/AgdaTaniguchi">Agda Taniguchi</a></p>
+        </footer>
+    </body>
+</html>
+<script src="js/script.js"></script>

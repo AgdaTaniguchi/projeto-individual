@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+:root{
+    --fundo: #0f0e17;
+    --texto: #fffffe;
+    --cor1: #ff8906;
+    --cor2: #f25f4c;
+    --cor3: #e53170;
+
+    --transicao: 0.3s;
+    --borda-radius: 5px;
+}
+
+/* Padrões */
+h1{
+    margin-bottom: 1.5rem;
+    color: var(--cor1);
+}
+
+section{
+    width: 95%;
+    max-width: 1336px;
+    margin: 50px auto;
+}
+
+/* Padrão de formulário */
+.formulario{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.box-input{
+    margin: 30px 0;
+}
+
+.box-botao{
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea{
+    width: 100%;
+    height: 45px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid var(--cor2);
+    border-radius: var(--borda-radius);
+    color: var(--texto);
+    font-size: 1.1rem;
+    transition-duration: var(--transicao);
+}
+
+select option{
+    background: var(--fundo);
+}
+
+input:focus, select:focus, textarea:focus{
+    border-color: var(--cor3);
+    transition-duration: var(--transicao);
+}
+
+button{
+    width: 15rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: var(--borda-radius);
+    color: var(--cor3);
+    font-weight: bold;
+    border: 2px solid var(--cor3);
+    background: rgba(0, 0, 0, 0);
+    transition-duration: var(--transicao);
+}
+
+button:hover, button:focus{
+    color: var(--fundo);
+    background: var(--cor3);
+    transition-duration: var(--transicao);
+}
+
+button:active{
+    position: relative;
+    top: 1px;
+}
+
+#alerta{
+    background: var(--cor2);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: var(--borda-radius);
+    display: none;
+}
+
+body{
+    background: var(--fundo);
+    color: var(--texto);
+    font-size: 18px;
+}
+
+/* Header */
+
+header{
+    height: 100px;
+    background: var(--cor2);
+}
+
+header nav img{
+    height: 75px;
+}
+
+header nav{
+    width: 95%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+header nav ul li a{
+    color: #eee;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition-duration: var(--transicao);
+}
+
+header nav ul li.aqui a{
+    color: white;
+}
+
+header nav ul li.aqui::after{
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--cor3);    
+}
+
+header nav ul li a:hover{
+    color: white;
+    font-size: 1.3rem;
+    transition-duration: var(--transicao);
+}
+
+/* Main */
+
+main{
+    min-height: calc(100vh - 100px - 80px - 50px); /* - header - footer - margin da section */
+}
+
+/* Footer */
+
+footer{
+    height: 80px;
+    background: var(--cor3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p a{
+    color: #eee;
+    transition-duration: var(--transicao);
+}
+
+footer p a:hover{
+    color: white;
+    transition-duration: var(--transicao);
+}
+
+/* Página inicial */
+section.home-meio .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section.home-meio .container .texto, section.home-meio .container .imagem{
+    width: 48%;
+}
+
+section.home-meio .container .texto p{
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 20px;
+}
+
+section.home-meio .container .imagem img{
+    width: 100%;
+}
+
+section.vantagens .container-vantagens{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+section.vantagens .container-vantagens .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 230px;
+}
+
+section.vantagens .container-vantagens .box span{
+    margin-top: 15px;
+    text-align: center;
+}
+
+section.vantagens .container-vantagens .box img{
+    width: 230px;
+    aspect-ratio: 1 / 1;
+}
+
+section.creditos .container ul.redes{
+    margin-left: 20px;
+    list-style-type: square;
+}
+
+section.creditos .container ul.redes li{
+    margin: 10px;
+}
+
+section.creditos .container ul.redes a{
+    color: #eee;
+    text-decoration: none;
+    transition-duration: var(--transicao);
+}
+
+section.creditos .container ul.redes a:hover{
+    color: var(--cor2);
+    transition-duration: var(--transicao);
+    text-decoration: none;
+}
+
+/* Jogos */
+section.jogos .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+section.jogos .container .categorias{
+    width: 20%;
+    height: fit-content;
+    padding: 15px;
+    background: #2c2c2c;
+    border-radius: var(--borda-radius);
+}
+
+section.jogos .container .categorias h3{
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+section.jogos .container .categorias ul{
+    list-style: none;
+}
+
+section.jogos .container .categorias ul li{
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+section.jogos .container .categorias ul li:hover{
+    color: var(--cor3);
+}
+
+section.jogos .container .jogos-container{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.jogos .container .jogos-container .jogo{
+    width: 20%;
+    aspect-ratio: 5 / 6;
+    min-width: 270px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background: #2c2c2c;
+    border-radius: var(--borda-radius);
+}
+
+section.jogos .container .jogos-container .jogo h3{
+    margin: 7px 15px;
+}
+
+section.jogos .container .jogos-container .jogo .categorias-jogo{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+section.jogos .container .jogos-container .jogo .categorias-jogo .box-categoria{
+    background: red;
+    width: fit-content;
+    padding: 3px 10px;
+    margin: 5px 5px;
+    border-radius: var(--borda-radius);
+}
+
+section.jogos .container .jogos-container .jogo img{
+    border-radius: var(--borda-radius) var(--borda-radius) 0 0;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+section.entrar .sem-conta{
+    color: white;
+    width: fit-content;
+    font-size: 1rem;
+    display: block;
+    margin: 1rem auto;
+    transition-duration: var(--transicao);
+    text-decoration: none;
+}
+
+section.entrar .sem-conta span:hover{
+    color: var(--cor1);
+    transition-duration: var(--transicao);
+}
+
+section.entrar .sem-conta span{
+    text-decoration: underline;
+}
