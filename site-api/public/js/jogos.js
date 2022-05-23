@@ -14,7 +14,6 @@ function obterJogos(){
                     if(id_jogos.indexOf(resposta[dado].idJogo) == -1){
                         id_jogos.push(resposta[dado].idJogo);
                         const nome_imagem = (((resposta[dado].jogo).split(' ')).join('')).toLowerCase();
-                        console.log(nome_imagem);
                         jogos_container.innerHTML += `<div class="jogo"><img src="images/jogos/${nome_imagem}.jpg" alt=""><h3>${resposta[dado].jogo}</h3><div class="categorias-jogo"><div class="box-categoria" style="background: #${resposta[dado].cor}">${resposta[dado].categoria}</div></div></div>`;
                     }
                     // Adicionando categoria
