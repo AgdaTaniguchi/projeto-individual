@@ -26,6 +26,48 @@
         <main>
             <section class="perfil">
                 <!-- Fazer sugestões de jogos de acordo com a categoria dos jogos que a pessoa for sugerindo -->
+                <div class="container">
+                    <div class="menu-lateral">
+                        <h3>Menu</h3>
+                        <ul>
+                            <li><a href="#dados">Seus dados</a></li>
+                            <li><a href="#sugestoes">Sugestões de jogos</a></li>
+                            <li><a href="#historico">Histórico de avaliações</a></li>
+                            <li><a href="index.html" onclick="sair()">Sair da conta</a></li>
+                        </ul>
+                    </div>
+                    <div class="conteudo">
+                        <div id="alteracoes" class="parte-conteudo">
+                            <h1 style="color: var(--cor1)">Seus dados</h1>
+                            <div class="formulario">
+                                <div class="box-input">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" id="nome">
+                                </div>
+                                <div class="box-input">
+                                    <label for="nomeUsuario">Nick:</label>
+                                    <input type="text" id="nomeUsuario">
+                                </div>
+                                <div class="box-input">
+                                    <label for="email">E-mail:</label>
+                                    <input type="email" id="email">
+                                </div>
+                                <div class="box-input box-botao">
+                                    <button>Atualizar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sugestoes" class="parte-conteudo">
+                            <h1>Sugestões de jogos</h1>
+                            <div class="jogo">
+                            </div>
+                        </div>
+                        <div id="historico" class="parte-conteudo">
+                            <h1>Últimos jogos avaliados</h1>
+                            <div class="jogo"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <footer>
@@ -34,5 +76,5 @@
     </body>
 </html>
 
-<script src="./js/jogos.js"></script>
+<script src="./js/perfil.js"></script>
 <script src="js/script.js"></script>

@@ -20,6 +20,10 @@
 }
 
 /* Padrões */
+html{
+    scroll-behavior: smooth;
+}
+
 h1{
     margin-bottom: 1.5rem;
     color: var(--cor1);
@@ -326,6 +330,8 @@ section.jogos .container .jogos-container .jogo img{
     object-fit: cover;
 }
 
+/* Entrar */
+
 section.entrar .sem-conta{
     color: white;
     width: fit-content;
@@ -343,4 +349,59 @@ section.entrar .sem-conta span:hover{
 
 section.entrar .sem-conta span{
     text-decoration: underline;
+}
+
+/* Perfil */
+section.perfil .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+section.perfil .conteudo{
+    width: 80%;
+    padding: 0 50px;
+}
+
+section.perfil .container .menu-lateral{
+    width: 20%;
+    min-width: 250px;
+    height: fit-content;
+    padding: 15px;
+    background: #2c2c2c;
+    border-radius: var(--borda-radius);
+    position: sticky;
+    top: 80px;
+}
+
+section.perfil .container .menu-lateral h3{
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+section.perfil .container .menu-lateral ul{
+    list-style: none;
+}
+
+section.perfil .container .menu-lateral ul li{
+    margin: 10px 0;
+}
+
+section.perfil .container .menu-lateral ul li a{
+    color: white;
+    text-decoration: none;
+    transition-duration: var(--transicao);
+}
+
+section.perfil .container .menu-lateral ul li a:hover{
+    color: var(--cor3);
+    transition-duration: var(--transicao);
+}
+
+section.perfil .formulario{
+    width: 100%;
+}
+
+section.perfil .conteudo .parte-conteudo{
+    min-height: 70vh;
 }
