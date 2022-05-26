@@ -17,6 +17,25 @@ function listar(req, res){
     });
 }
 
+function pegarInfo(req, res){
+    const idJogo = req.query.idJogo;
+    jogosModel.pegarInfo(idJogo)
+    .then((resultado) => {
+        if(resultado.length == 0){
+            res.status(403).send("ERRO: O jogo não foi encontrado no banco de dados!");
+        }
+        else{
+            res.json(resultado);
+        }
+    })
+    .catch((erro) => {
+        console.log(erro);
+        console.log(`Houve um erro ao pegar os dados do jogo! Erro: ${erro.sqlMessage}`);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
-    listar
+    listar,
+    pegarInfo
 }

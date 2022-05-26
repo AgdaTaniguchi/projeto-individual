@@ -7,6 +7,14 @@ function listar(){
     return database.executar(comando);
 }
 
+function pegarInfo(idJogo){
+    const comando = `SELECT * FROM Jogo INNER JOIN JogoCategoria ON idJogo = fkJogo INNER JOIN Categoria ON idCategoria = fkCategoria WHERE idJogo = ${idJogo};`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
 module.exports = {
-    listar
+    listar,
+    pegarInfo
 }
