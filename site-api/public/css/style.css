@@ -32,7 +32,7 @@ h1{
 section{
     width: 90%;
     max-width: 1336px;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 /* Padrão de formulário */
@@ -168,7 +168,8 @@ header nav ul li a:hover{
 /* Main */
 
 main{
-    min-height: calc(100vh - 100px - 80px - 50px); /* - header - footer - margin da section */
+    min-height: calc(100vh - 100px - 80px); /* - header - footer - margin da section */
+    padding: 15px;
 }
 
 /* Footer */
@@ -292,13 +293,14 @@ section.jogos .container .categorias ul li:hover{
 section.jogos .container .jogos-container{
     width: 75%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 section.jogos .container .jogos-container .jogo{
     width: 20%;
     aspect-ratio: 5 / 6;
-    min-width: 270px;
+    min-width: 250px;
     margin-right: 30px;
     margin-bottom: 30px;
     background: #2c2c2c;
@@ -369,9 +371,9 @@ section.perfil .container .menu-lateral{
     padding: 15px;
     background: #2c2c2c;
     border-radius: var(--borda-radius);
-    margin-top: 50px;
     position: sticky;
-    top: 60px;
+    top: 40px;
+    margin-top: 40px;
 }
 
 section.perfil .container .menu-lateral h3{
@@ -410,6 +412,6 @@ section.perfil .formulario{
 }
 
 section.perfil .conteudo .parte-conteudo{
-    padding: 50px;
+    padding: 30px;
     min-height: 100vh;
 }

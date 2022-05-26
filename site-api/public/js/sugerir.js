@@ -10,6 +10,7 @@ function sugerir(){
 
     if(jogoVar == "" || categoriaVar == ""){
         alertar("Preencha todos os campos para prosseguir!");
+        return false;
     }
 
     fetch("/usuario/sugerir", {

@@ -9,7 +9,7 @@ function entrar(email, senha){
 }
 
 function cadastrar(nome, nick, email, senha){
-    console.log(`Acessei o usuarioModel. Function cadastrar(${nome}, ${nick}, ${email}, ${senha}, ${idUsuario})`);
+    console.log(`Acessei o usuarioModel. Function cadastrar(${nome}, ${nick}, ${email}, ${senha}`);
     const comando = `INSERT INTO Usuario (nome, nick, email, senha) VALUES ('${nome}', '${nick}', '${email}', '${senha}')`;
     
     console.log(`Executando a instrução SQL: ${comando}`);

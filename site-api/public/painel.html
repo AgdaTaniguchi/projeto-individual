@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel | AvaliaOGame</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html"><img src="images/logo2.png" alt="Logo AvaliaOGame"></a>
+                <ul>
+                    <li><a href="index.html">Página inicial</a></li>
+                    <li><a href="jogos.html">Jogos</a></li>
+                    <li id="menu_sugerir" style="display: none;"><a href="sugerir.html">Sugerir jogos</a></li>
+                    <li class="aqui" id="menu_perfil" style="display: none;"><a id="menu_nome" href="perfil.html"></a></li>
+                    <li id="menu_entrar"><a href="entrar.html">Entrar</a></li>
+                    <li id="menu_cadastrar"><a href="cadastrar.html">Cadastrar</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="perfil">
+                <!-- Fazer sugestões de jogos de acordo com a categoria dos jogos que a pessoa for sugerindo -->
+                <div class="container">
+                    <div class="menu-lateral">
+                        <h3>Jogos</h3>
+                        <ul>
+                            <li><a href="#cadastrarJogo">Cadastrar jogo</a></li>
+                            <li><a href="#removerJogo">Remover jogo</a></li>
+                            <li><a href="#listarJogos">Listar jogos</a></li>
+                        </ul>
+                        <h3>Sugestões</h3>
+                        <ul>
+                            <li><a href="#listarSugestoes">Listar sugestões</a></li>
+                        </ul>
+                        <h3>Usuários</h3>
+                        <ul>
+                            <li><a href="#listarUsuarios">Listar usuário</a></li>
+                            <li class="sair"><a href="index.html" onclick="sair()">Sair da conta</a></li>
+                        </ul>
+                    </div>
+                    <div class="conteudo">
+                        <div id="cadastrarJogos" class="parte-conteudo">
+                            <h1 style="color: var(--cor1)">Cadastrar jogo</h1>
+                            <div class="formulario">
+                                <div class="box-input">
+                                    <label for="nomeJogo">Nome do jogo:</label>
+                                    <input type="text" id="nomeJogo">
+                                </div>
+                                <div class="box-input">
+                                    <label for="categoriaJogo">Categoria do jogo:</label>
+                                    <input type="text" id="categoriaJogo">
+                                </div>
+                                <div class="box-input">
+                                    <label for="imagem">Imagem do jogo:</label>
+                                    <input type="file" id="imagemJogo">
+                                </div>
+                                <div class="box-input box-botao">
+                                    <button onclick="atualizar()">Atualizar</button>
+                                </div>
+                                <div id="alerta"></div>
+                            </div>
+                        </div>
+                        <div id="sugestoes" class="parte-conteudo">
+                            <h1>Jogos para você</h1>
+                            <div class="jogo">
+                            </div>
+                        </div>
+                        <div id="historico" class="parte-conteudo">
+                            <h1>Últimos jogos avaliados</h1>
+                            <div class="jogo"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Página desenvolvida por <a href="https://github.com/AgdaTaniguchi">Agda Taniguchi</a></p>
+        </footer>
+    </body>
+</html>
+
+<script src="js/painel.js"></script>
+<script src="js/script.js"></script>
