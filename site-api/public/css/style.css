@@ -30,7 +30,7 @@ h1{
 }
 
 section{
-    width: 95%;
+    width: 90%;
     max-width: 1336px;
     margin: 50px auto;
 }
@@ -282,7 +282,7 @@ section.jogos .container .categorias ul{
 
 section.jogos .container .categorias ul li{
     cursor: pointer;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 section.jogos .container .categorias ul li:hover{
@@ -369,8 +369,9 @@ section.perfil .container .menu-lateral{
     padding: 15px;
     background: #2c2c2c;
     border-radius: var(--borda-radius);
+    margin-top: 50px;
     position: sticky;
-    top: 80px;
+    top: 60px;
 }
 
 section.perfil .container .menu-lateral h3{
@@ -384,7 +385,13 @@ section.perfil .container .menu-lateral ul{
 }
 
 section.perfil .container .menu-lateral ul li{
-    margin: 10px 0;
+    margin: 20px 0;
+}
+
+section.perfil .container .menu-lateral ul li.sair{
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 15px;
+    margin-bottom: 0;
 }
 
 section.perfil .container .menu-lateral ul li a{
@@ -403,5 +410,6 @@ section.perfil .formulario{
 }
 
 section.perfil .conteudo .parte-conteudo{
-    min-height: 70vh;
+    padding: 50px;
+    min-height: 100vh;
 }

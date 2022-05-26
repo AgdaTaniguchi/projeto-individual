@@ -28,7 +28,6 @@ function entrar(){
         })
     })
     .then(function(resposta){
-        console.log(resposta)
         if(resposta.ok){
             resposta.json().then(json => {
                 console.log(json);
@@ -37,7 +36,7 @@ function entrar(){
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.idUsuario;
-                sessionStorage.NICK= json.nick;
+                sessionStorage.NICK = json.nick;
                 sessionStorage.ADMINISTRADOR = json.administrador;
 
                 window.location = "jogos.html";

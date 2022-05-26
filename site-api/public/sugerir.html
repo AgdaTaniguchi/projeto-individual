@@ -28,12 +28,12 @@
                 <div class="formulario">
                     <h1 style="color: var(--cor1)">Sugira um jogo!</h1>
                     <div class="box-input">
-                        <label for="nome">Nome do jogo:</label>
-                        <input type="text" id="nome">
+                        <label for="jogo">Nome do jogo:</label>
+                        <input type="text" id="jogo">
                     </div>
                     <div class="box-input">
-                        <label for="nomeUsuario">Categoria do jogo:</label>
-                        <select id="categoriasJogos">
+                        <label for="categoria">Categoria do jogo:</label>
+                        <select id="categoria">
                             <option value="ação">Ação</option>
                             <option value="puzzle">Puzzle</option>
                             <option value="fps">FPS</option>
@@ -42,8 +42,9 @@
                         </select>
                     </div>
                     <div class="box-input box-botao">
-                        <button>Fazer sugestão</button>
+                        <button onclick="sugerir()">Fazer sugestão</button>
                     </div>
+                    <div id="alerta"></div>
                 </div>
             </section>
         </main>
@@ -53,3 +54,4 @@
     </body>
 </html>
 <script src="js/script.js"></script>
+<script src="js/sugerir.js"></script>

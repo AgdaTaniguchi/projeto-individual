@@ -4,23 +4,23 @@ USE AvaliaOGame;
 
 CREATE TABLE Usuario(
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
-    nick VARCHAR(30),
-    senha VARCHAR(30),
-    email VARCHAR(50) CHECK(email LIKE '%@%'),
+    nome VARCHAR(50) NOT NULL,
+    nick VARCHAR(30) NOT NULL UNIQUE,
+    senha VARCHAR(30) NOT NULL,
+    email VARCHAR(50) CHECK(email LIKE '%@%') UNIQUE,
     administrador BOOLEAN
 );
 
 CREATE TABLE Jogo(
 	idJogo INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
+    nome VARCHAR(50) NOT NULL,
     descricao VARCHAR(600),
     desenvolvedora VARCHAR(50)
 );
 
 CREATE TABLE Categoria(
 	idCategoria INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
+    nome VARCHAR(50) NOT NULL UNIQUE,
     cor CHAR(6)
 );
 
@@ -46,3 +46,13 @@ CREATE TABLE JogoCategoria(
     FOREIGN KEY (fkCategoria) REFERENCES Categoria(idCategoria),
     PRIMARY KEY (fkJogo, fkCategoria)
 );
+
+CREATE TABLE JogoSugerido(
+	idJogoSugerido INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    categoria VARCHAR(50),
+    fkUsuario INT,
+    FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario)
+);
+
+INSERT INTO Usuario VALUES (NULL, 'Agda Taniguchi', 'adjasente', '123456', 'agdatany@gmail.com', True);

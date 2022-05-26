@@ -33,11 +33,12 @@
                             <li><a href="#dados">Seus dados</a></li>
                             <li><a href="#sugestoes">Sugestões de jogos</a></li>
                             <li><a href="#historico">Histórico de avaliações</a></li>
-                            <li><a href="index.html" onclick="sair()">Sair da conta</a></li>
+                            <li><a id="admMenu" style="display: none;" href="painel.html">Controle de jogos</a></li>
+                            <li class="sair"><a href="index.html" onclick="sair()">Sair da conta</a></li>
                         </ul>
                     </div>
                     <div class="conteudo">
-                        <div id="alteracoes" class="parte-conteudo">
+                        <div id="dados" class="parte-conteudo">
                             <h1 style="color: var(--cor1)">Seus dados</h1>
                             <div class="formulario">
                                 <div class="box-input">
@@ -53,12 +54,13 @@
                                     <input type="email" id="email">
                                 </div>
                                 <div class="box-input box-botao">
-                                    <button>Atualizar</button>
+                                    <button onclick="atualizar()">Atualizar</button>
                                 </div>
+                                <div id="alerta"></div>
                             </div>
                         </div>
                         <div id="sugestoes" class="parte-conteudo">
-                            <h1>Sugestões de jogos</h1>
+                            <h1>Jogos para você</h1>
                             <div class="jogo">
                             </div>
                         </div>
