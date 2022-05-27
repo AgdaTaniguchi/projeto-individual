@@ -42,13 +42,13 @@
                         <div class="caixa">
                             <h3>Categorias</h3>
                             <ul>
-                                <li>Ação</li>
-                                <li>Puzzle</li>
-                                <li>FPS</li>
-                                <li>Simulador</li>
-                                <li>RPG</li>
-                                <li>Um jogador</li>
-                                <li>Multijogador</li>
+                                <li onclick="filtrar()" value="1">Ação</li>
+                                <li onclick="filtrar()" value="2">Puzzle</li>
+                                <li onclick="filtrar()" value="3">FPS</li>
+                                <li onclick="filtrar()" value="4">Simulador</li>
+                                <li onclick="filtrar()" value="5">RPG</li>
+                                <li onclick="filtrar()" value="6">Um Jogador</li>
+                                <li onclick="filtrar()" value="7">Multijogador</li>
                             </ul>
                         </div>
                     </div>
@@ -80,3 +80,23 @@
 
 <script src="./js/jogos.js"></script>
 <script src="js/script.js"></script>
+
+<script>
+    function filtrar(){
+        idCategoria = event.target.value;
+        fetch(`jogos/filtrar?idCategoria=${idCategoria}`)
+        .then(((res) => {
+            if(res.ok){
+                res.json().then(function(resposta){
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                });
+            }
+            else{
+                console.error('Nenhum jogo encontrado ou erro na API');
+            }
+        }))
+        .catch((erro) => {
+            console.error(`Erro na obtenção dos jogos: ${erro.message}`);
+        });
+    }
+</script>

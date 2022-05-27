@@ -14,7 +14,15 @@ function pegarInfo(idJogo){
     return database.executar(comando);
 }
 
+function filtrar(idCategoria){
+    const comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J LEFT JOIN JogoCategoria ON idJogo = fkJogo LEFT JOIN Categoria C ON idCategoria = fkCategoria WHERE idCategoria = ${idCategoria}`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
 module.exports = {
     listar,
-    pegarInfo
+    pegarInfo,
+    filtrar
 }

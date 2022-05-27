@@ -35,7 +35,26 @@ function pegarInfo(req, res){
     });
 }
 
+function filtrar(req, res){
+    const idCategoria = req.query.idCategoria;
+    jogosModel.filtrar(idCategoria)
+    .then((resultado) => {
+        if(resultado.length == 0){
+            res.status(403).send("Nenhum jogo foi encontrado na lista!");
+        }
+        else{
+            res.json(resultado);
+        }
+    })
+    .catch((erro) => {
+        console.log(erro);
+        console.log(`Houve um erro ao pegar os jogos! Erro: ${erro.sqlMessage}`);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     listar,
-    pegarInfo
+    pegarInfo,
+    filtrar
 }

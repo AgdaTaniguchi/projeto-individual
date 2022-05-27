@@ -11,7 +11,7 @@ function obterDados(){
     .then((function(res){
         if(res.ok){
             res.json().then(function(resposta){
-                console.log(`Dados ercebidos: ${JSON.stringify(resposta)}`);
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             });
         }
         else{
