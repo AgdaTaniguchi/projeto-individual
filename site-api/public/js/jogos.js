@@ -3,6 +3,8 @@ window.onload = obterJogos();
 function obterJogos(){
     fetch("jogos/listar").then((function(res){
         if(res.ok){
+            loading.style.display = "none";
+
             res.json().then(function(resposta){
                 console.log(`Dados ercebidos: ${JSON.stringify(resposta)}`);
 

@@ -27,19 +27,35 @@
             <section class="jogos">
                 <h1>Jogos</h1>
                 <div class="container">
-                    <div class="categorias">
-                        <h3>Categorias</h3>
-                        <ul>
-                            <li>Ação</li>
-                            <li>Puzzle</li>
-                            <li>FPS</li>
-                            <li>Simulador</li>
-                            <li>RPG</li>
-                            <li>Um jogador</li>
-                            <li>Multijogador</li>
-                        </ul>
+                    <div class="box-esquerda">
+                        <div class="caixa">
+                            <h3>Ordenar por:</h3>
+                            <select id="ordenarJogos">
+                                <option value="ultimosAdicionados">Últimos adicionados</option>
+                                <option value="nome">Nome</option>
+                                <option value="maisAvaliados">Mais avaliados</option>
+                                <option value="menosAvaliados">Menos avaliados</option>
+                                <option value="maiorNota">Maior nota</option>
+                                <option value="menorNota">Menor nota</option>
+                            </select>
+                        </div>
+                        <div class="caixa">
+                            <h3>Categorias</h3>
+                            <ul>
+                                <li>Ação</li>
+                                <li>Puzzle</li>
+                                <li>FPS</li>
+                                <li>Simulador</li>
+                                <li>RPG</li>
+                                <li>Um jogador</li>
+                                <li>Multijogador</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="jogos-container">
+                        <div id="loading">
+                            <div class="animacao"></div>
+                        </div>
                         <!-- <div class="jogo">
                             <img src="images/jogos/valorant.jpg" alt="">
                             <h3>Minecraft</h3>
