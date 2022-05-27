@@ -25,9 +25,9 @@
         </header>
         <main>
             <section class="jogo">
-                <div id="fundoModal"></div>
+                <div id="fundoModal" onclick="fecharModal()"></div>
                 <div id="modalAvaliar">
-                    <h1>Avaliar o jogo - <span id="nomeJogo">Nome do jogo</span></h1>
+                    <h1>Avaliar o jogo - <span id="nomeJogoModal">Nome do jogo</span></h1>
                     <div class="box-input">
                         <label for="comentarioAvaliacao">O que você achou do jogo?</label>
                         <textarea id="comentarioAvaliacao"></textarea>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="box-input" style="text-align: center;">
-                        <button>Avaliar</button>
+                        <button onclick="avaliarJogo()">Avaliar</button>
                     </div>
                 </div>
                 <div class="container-header">
@@ -167,7 +167,7 @@
                             <span>Mojang</span>
                         </div>
                         <div class="info-jogo">
-                            <button>Avaliar jogo</button>
+                            <button onclick="abrirModalAvaliar()">Avaliar jogo</button>
                         </div>
                     </div>
                 </div>

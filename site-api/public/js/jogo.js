@@ -1,4 +1,6 @@
-window.onload = obterDados();
+window.onload = () => {
+    obterDados();
+};
 
 function obterDados(){
     const parametrosString = window.location.search;
@@ -19,4 +21,14 @@ function obterDados(){
     .catch(function(erro){
         console.error(`Erro na obtenção dos dados do jogo: ${erro.message}`);
     });
+}
+
+function abrirModalAvaliar(){
+    modalAvaliar.style.display = "block";
+    fundoModal.style.display = "block";
+}
+
+function fecharModal(){
+    modalAvaliar.style.display = "none";
+    fundoModal.style.display = "none";
 }
