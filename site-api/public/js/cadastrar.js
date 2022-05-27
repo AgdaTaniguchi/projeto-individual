@@ -70,7 +70,7 @@ function cadastrar(){
     })
     .catch(function(erro){
         console.log(erro);
-    })
+    });
 
     return false;
 }

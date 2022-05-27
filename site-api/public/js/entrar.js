@@ -53,7 +53,7 @@ function entrar(){
     })
     .catch(function(erro){
         console.log(erro);
-    })
+    });
 
     return false;
 }

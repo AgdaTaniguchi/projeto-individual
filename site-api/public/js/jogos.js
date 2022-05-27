@@ -28,5 +28,5 @@ function obterJogos(){
         }
     })).catch(function(erro){
         console.error(`Erro na obtenção dos jogos: ${erro.message}`);
-    })
+    });
 }

@@ -55,4 +55,6 @@ CREATE TABLE JogoSugerido(
     FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario)
 );
 
-INSERT INTO Usuario VALUES (NULL, 'Agda Taniguchi', 'adjasente', '123456', 'agdatany@gmail.com', True);
+SELECT * FROM usuario;
+
+INSERT INTO Usuario VALUES (NULL, 'Agda Taniguchi', 'lala', '123456', 'lala@gmail.com', True);

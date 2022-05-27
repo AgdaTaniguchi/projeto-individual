@@ -87,6 +87,9 @@ function atualizar(){
             });
         }
     })
+    .catch((erro) => {
+        console.error(`Erro na obtenção dos dados do usuário: ${erro.message}`);
+    });
 }
 
 var intervalo;
