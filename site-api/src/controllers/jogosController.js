@@ -1,7 +1,7 @@
 const jogosModel = require("../models/jogosModel");
 
-function listar(req, res){
-    jogosModel.listar()
+function listarJogos(req, res){
+    jogosModel.listarJogos()
     .then((resultado) => {
         if(resultado.length == 0){
             res.status(403).send("Nenhum jogo cadastrado no banco de dados!");
@@ -17,15 +17,26 @@ function listar(req, res){
     });
 }
 
-function pegarInfo(req, res){
+function pegarInfoJogo(req, res){
     const idJogo = req.query.idJogo;
-    jogosModel.pegarInfo(idJogo)
-    .then((resultado) => {
-        if(resultado.length == 0){
+    jogosModel.pegarInfoJogo(idJogo)
+    .then((dadosJogo) => {
+        if(dadosJogo.length == 0){
             res.status(403).send("ERRO: O jogo não foi encontrado no banco de dados!");
         }
         else{
-            res.json(resultado);
+            jogosModel.pegarCategoriasJogo(idJogo)
+            .then((categorias) => {
+                dadosJogo.push(categorias);
+
+                console.log(dadosJogo);
+                res.json(dadosJogo);
+            })
+            .catch((erro) => {
+                console.log(erro);
+                console.log(`Houve um erro ao pegar as categorias do jogo! Erro: ${erro.sqlMessage}`);
+    	        res.status(500).json(erro.sqlMessage);
+            });
         }
     })
     .catch((erro) => {
@@ -35,26 +46,27 @@ function pegarInfo(req, res){
     });
 }
 
-function filtrar(req, res){
-    const idCategoria = req.query.idCategoria;
-    jogosModel.filtrar(idCategoria)
-    .then((resultado) => {
-        if(resultado.length == 0){
-            res.status(403).send("Nenhum jogo foi encontrado na lista!");
+function pegarAvaliacoesJogo(req, res){
+    const idJogo = req.query.idJogo;
+    jogosModel.pegarAvaliacoesJogo(idJogo)
+    .then((avaliacoes) => {
+        if(avaliacoes.length == 0){
+            res.status(404).send("Nenhuma avaliação encontrada.");
         }
         else{
-            res.json(resultado);
+            console.log(avaliacoes);
+            res.json(avaliacoes);
         }
     })
-    .catch((erro) => {
+    .catch((erro) =>{
         console.log(erro);
-        console.log(`Houve um erro ao pegar os jogos! Erro: ${erro.sqlMessage}`);
+        console.log(`Houve um erro ao pegar as avaliações do jogo! Erro: ${erro.sqlMessage}`);
         res.status(500).json(erro.sqlMessage);
     });
 }
 
 module.exports = {
-    listar,
-    pegarInfo,
-    filtrar
+    listarJogos,
+    pegarInfoJogo,
+    pegarAvaliacoesJogo
 }

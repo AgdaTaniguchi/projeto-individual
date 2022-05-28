@@ -1,28 +1,52 @@
 const database = require("../database/config");
 
-function listar(){
-    const comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J LEFT JOIN JogoCategoria ON idJogo = fkJogo LEFT JOIN Categoria C ON idCategoria = fkCategoria ORDER BY idJogo`;
+function listarJogos(filtrar, ordenar = "idJogo"){
+    let comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J LEFT JOIN JogoCategoria ON idJogo = fkJogo LEFT JOIN Categoria C ON idCategoria = fkCategoria `;
+    
+    if(filtrar){
+        comando += `WHERE C.nome = '${filtrar}' `;
+    }
+
+    if(ordenar){
+        comando += `ORDER BY ${ordenar} `;
+    }
     
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
 }
 
-function pegarInfo(idJogo){
-    const comando = `SELECT j.nome AS 'jogo', descricao, desenvolvedora, c.nome AS 'categoria', cor FROM Jogo j INNER JOIN JogoCategoria ON idJogo = fkJogo INNER JOIN Categoria c ON idCategoria = fkCategoria WHERE idJogo = ${idJogo}`;
+function listarCategorias(){
+    const comando = `SELECT nome, cor FROM categoria`;
 
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
 }
 
-function filtrar(idCategoria){
-    const comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J LEFT JOIN JogoCategoria ON idJogo = fkJogo LEFT JOIN Categoria C ON idCategoria = fkCategoria WHERE idCategoria = ${idCategoria}`;
+function pegarInfoJogo(idJogo){
+    const comando = `SELECT nome, descricao, desenvolvedora FROM Jogo WHERE idJogo = ${idJogo}`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
+function pegarCategoriasJogo(idJogo){
+    const comando = `SELECT nome, cor FROM Categoria JOIN jogoCategoria ON fkCategoria = idCategoria AND fkJogo = ${idJogo}`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
+function pegarAvaliacoesJogo(idJogo){
+    let comando = `SELECT nick, dataAvaliacao, comentario, notaAudio, notaVisual, notaJogabilidade, notaCampanha, notaDiversao FROM Avaliacao INNER JOIN usuario ON idUsuario = fkUsuario WHERE fkJogo = ${idJogo} ORDER BY dataAvaliacao DESC`;
 
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
 }
 
 module.exports = {
-    listar,
-    pegarInfo,
-    filtrar
+    listarJogos,
+    listarCategorias,
+    pegarInfoJogo,
+    pegarCategoriasJogo,
+    pegarAvaliacoesJogo
 }

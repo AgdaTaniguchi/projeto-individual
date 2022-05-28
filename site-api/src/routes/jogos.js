@@ -3,12 +3,16 @@ const router = express.Router();
 
 const jogosController = require("../controllers/jogosController");
 
-router.get("/listar", function(req, res){
-    jogosController.listar(req, res);
+router.get("/listarJogos", function(req, res){
+    jogosController.listarJogos(req, res);
 });
 
-router.get("/pegarInfo", function(req, res){
-    jogosController.pegarInfo(req, res);
+router.get("/pegarInfoJogo", function(req, res){
+    jogosController.pegarInfoJogo(req, res);
+});
+
+router.get("/pegarAvaliacoesJogo", function(req, res){
+    jogosController.pegarAvaliacoesJogo(req, res);
 });
 
 module.exports = router;

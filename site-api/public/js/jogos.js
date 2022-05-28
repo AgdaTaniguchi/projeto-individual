@@ -1,7 +1,7 @@
 window.onload = obterJogos();
 
 function obterJogos(){
-    fetch("jogos/listar").then((function(res){
+    fetch("jogos/listarJogos").then((function(res){
         if(res.ok){
             loading.style.display = "none";
 

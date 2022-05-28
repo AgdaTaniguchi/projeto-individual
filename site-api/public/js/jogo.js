@@ -1,17 +1,20 @@
 window.onload = () => {
-    obterDados();
-};
-
-function obterDados(){
     const parametrosString = window.location.search;
     const parametros = new URLSearchParams(parametrosString);
     const idJogo = parametros.get("idJogo");
+    
+    obterDados(idJogo);
+    obterAvaliacoes(idJogo);
+};
 
-    fetch(`jogos/pegarInfo?idJogo=${idJogo}`)
+function obterDados(idJogo){
+    fetch(`jogos/pegarInfoJogo?idJogo=${idJogo}`)
     .then((function(res){
         if(res.ok){
             res.json().then(function(resposta){
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                preencherDados(resposta);
             });
         }
         else{
@@ -21,6 +24,33 @@ function obterDados(){
     .catch(function(erro){
         console.error(`Erro na obtenção dos dados do jogo: ${erro.message}`);
     });
+    
+    return false;
+}
+
+function obterAvaliacoes(idJogo){
+    const caminhoAvaliacoes = `jogos/pegarAvaliacoesJogo?idJogo=${idJogo}`;
+    fetch(caminhoAvaliacoes)
+    .then((function(res){
+        if(res.ok){
+            res.json().then(function(resposta){
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                inserirAvaliacoes(resposta);
+            });
+        }
+        else if(res.status == 404){
+            console.log("Opa, nenhuma avaliação encontrada!");
+        }
+        else{
+            console.error('Nenhum dado encontrado ou erro na API.');
+        }
+    }))
+    .catch(function(erro){
+        console.error(`Erro na obtenção dos dados do jogo: ${erro.message}`);
+    });
+
+    return false;
 }
 
 function abrirModalAvaliar(){
@@ -31,4 +61,53 @@ function abrirModalAvaliar(){
 function fecharModal(){
     modalAvaliar.style.display = "none";
     fundoModal.style.display = "none";
+}
+
+function preencherDados(resposta){
+    nomeJogo.innerHTML = resposta[0].nome;
+    nomeJogoModal.innerHTML = resposta[0].nome;
+    descricaoJogo.innerHTML = resposta[0].descricao;
+    desenvolvedoraJogo.innerHTML = resposta[0].desenvolvedora;
+
+    for(let contador = 0; contador < resposta[1].length; contador++){
+        const categoria = resposta[1][contador];
+        document.querySelector(".categorias-jogo").innerHTML += `<div style="background: #${categoria.cor}" class="box-categoria">${categoria.nome}</div>`;
+    }
+}
+
+function inserirAvaliacoes(resposta){
+    for(let contador = 0; contador < resposta.length; contador++){
+        let avaliacao = resposta[contador];
+        var data = avaliacao.dataAvaliacao;
+        avaliacoes.innerHTML += `
+        <div class="avaliacao">
+            <div class="header">
+                <h3>${avaliacao.nick}</h3>
+                <span>${avaliacao.dataAvaliacao} às 14:23</span>
+            </div>
+            <p>${avaliacao.comentario}</p>
+            <div class="container-avaliacoes">
+                <div class="box-avaliacao">
+                    <div class="nota">${avaliacao.notaAudio}</div>
+                    <h5>Audio</h5>
+                </div>
+                <div class="box-avaliacao">
+                    <div class="nota">${avaliacao.notaVisual}</div>
+                    <h5>Visual</h5>
+                </div>
+                <div class="box-avaliacao">
+                    <div class="nota">${avaliacao.notaJogabilidade}</div>
+                    <h5>Jogabilidade</h5>
+                </div>
+                <div class="box-avaliacao">
+                    <div class="nota">${avaliacao.notaCampanha}</div>
+                    <h5>História</h5>
+                </div>
+                <div class="box-avaliacao">
+                    <div class="nota">${avaliacao.notaDiversao}</div>
+                    <h5>Diversão</h5>
+                </div>
+            </div>
+        </div>`;
+    }
 }

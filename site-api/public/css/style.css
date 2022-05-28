@@ -27,6 +27,11 @@ html{
 h1{
     margin-bottom: 1.5rem;
     color: var(--cor1);
+    text-transform: capitalize;
+}
+
+h3{
+    text-transform: capitalize;
 }
 
 section{
@@ -366,7 +371,6 @@ section.jogos .container .jogos-container .jogo:hover{
 
 section.jogos .container .jogos-container .jogo h3{
     margin: 7px 15px;
-    text-transform: capitalize;
 }
 
 .categorias-jogo{
@@ -566,7 +570,7 @@ section.jogo .container-main .box-esquerda .avaliacao{
     margin: 30px 0;
     background: #2c2c2c;
     border-radius: var(--borda-radius);
-    padding: 15px 30px;
+    padding: 25px 30px;
 }
 
 section.jogo .container-main .box-esquerda .avaliacao .header{
@@ -586,12 +590,12 @@ section.jogo .container-main .box-direita{
     height: fit-content;
     background: #2c2c2c;
     border-radius: var(--borda-radius);
-    padding: 15px 30px;
+    padding: 25px 30px;
     margin-top: 65px;
 }
 
 section.jogo .container-main .box-direita .info-jogo{
-    margin: 25px 0;
+    margin-bottom: 25px;
 }
 
 section.jogo .container-main .box-direita .info-jogo .categorias-jogo{
@@ -609,7 +613,6 @@ section.jogo .container-main .box-direita .info-jogo button{
 #modalAvaliar{
     display: none;
     width: 80%;
-    height: 95vh;
     position: fixed;
     z-index: 2;
     left: 50%;
