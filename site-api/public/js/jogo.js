@@ -87,26 +87,33 @@ function inserirAvaliacoes(resposta){
             <p>${avaliacao.comentario}</p>
             <div class="container-avaliacoes">
                 <div class="box-avaliacao">
-                    <div class="nota">${avaliacao.notaAudio}</div>
+                    <div class="nota nota-audio">${avaliacao.notaAudio}</div>
                     <h5>Audio</h5>
+                    <div style="width:calc(${avaliacao.notaAudio} / 10 * 100%);" class="nota-barra"></div>
                 </div>
                 <div class="box-avaliacao">
-                    <div class="nota">${avaliacao.notaVisual}</div>
+                    <div class="nota nota-visual">${avaliacao.notaVisual}</div>
                     <h5>Visual</h5>
+                    <div style="width:calc(${avaliacao.notaVisual} / 10 * 100%);" class="nota-barra"></div>
                 </div>
                 <div class="box-avaliacao">
-                    <div class="nota">${avaliacao.notaJogabilidade}</div>
+                    <div class="nota nota-jogabilidade">${avaliacao.notaJogabilidade}</div>
                     <h5>Jogabilidade</h5>
+                    <div style="width:calc(${avaliacao.notaJogabilidade} / 10 * 100%);" class="nota-barra"></div>
                 </div>
                 <div class="box-avaliacao">
-                    <div class="nota">${avaliacao.notaCampanha}</div>
+                    <div class="nota nota-historia">${avaliacao.notaCampanha}</div>
                     <h5>História</h5>
+                    <div style="width:calc(${avaliacao.notaCampanha} / 10 * 100%);" class="nota-barra"></div>
                 </div>
                 <div class="box-avaliacao">
-                    <div class="nota">${avaliacao.notaDiversao}</div>
+                    <div class="nota nota-diversao">${avaliacao.notaDiversao}</div>
                     <h5>Diversão</h5>
+                    <div style="width:calc(${avaliacao.notaDiversao} / 10 * 100%);" class="nota-barra"></div>
                 </div>
             </div>
         </div>`;
+
+        
     }
 }

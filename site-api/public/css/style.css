@@ -546,12 +546,11 @@ section.jogo .container-avaliacoes .box-avaliacao .nota{
     border-bottom: 3px solid rgba(242, 95, 76, 0.4);
 }
 
-section.jogo .container-avaliacoes .box-avaliacao .nota::after{
-    content: '';
-    width: 45%;
+section.jogo .container-avaliacoes .box-avaliacao .nota-barra{
+    width: 50%;
     display: block;
     position: relative;
-    bottom: -8px;
+    top: -38px;
     height: 3px;
     background: var(--cor3);
 }

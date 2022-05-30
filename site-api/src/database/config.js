@@ -2,10 +2,10 @@ const mysql = require("mysql2");
 
 const mySqlConfig = {
     host: 'localhost',
-    user: 'root',
+    user: 'aluno',
     database: 'AvaliaOGame',
-    password: '1234',
-    port: 3307
+    password: 'sptech',
+    port: 3306
 }
 
 function executar(comando){
