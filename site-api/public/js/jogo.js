@@ -78,12 +78,11 @@ function preencherDados(resposta){
 function inserirAvaliacoes(resposta){
     for(let contador = 0; contador < resposta.length; contador++){
         let avaliacao = resposta[contador];
-        var data = avaliacao.dataAvaliacao;
         avaliacoes.innerHTML += `
         <div class="avaliacao">
             <div class="header">
                 <h3>${avaliacao.nick}</h3>
-                <span>${avaliacao.dataAvaliacao} às 14:23</span>
+                <span>${moment(avaliacao.dataAvaliacao).format("DD/MM/YYYY")} às ${moment(avaliacao.dataAvaliacao).format("HH:mm:ss")}</span>
             </div>
             <p>${avaliacao.comentario}</p>
             <div class="container-avaliacoes">
