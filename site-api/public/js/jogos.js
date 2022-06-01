@@ -6,9 +6,8 @@ function obterJogos(){
             loading.style.display = "none";
 
             res.json().then(function(resposta){
-                console.log(`Dados ercebidos: ${JSON.stringify(resposta)}`);
-
-                var id_jogos = [];
+                // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                let id_jogos = [];
                 const jogos_container = document.querySelector(".jogos-container");
 
                 for(let dado = 0; dado < resposta.length; dado++){
@@ -20,7 +19,8 @@ function obterJogos(){
                     }
                     // Adicionando categoria
                     else{
-                        document.querySelectorAll(".categorias-jogo:last-child")[0].innerHTML += `<div class="box-categoria" style="background: #${resposta[dado].cor}">${resposta[dado].categoria}</div>`;
+                        let categorias = document.querySelectorAll(".categorias-jogo");
+                        categorias[categorias.length - 1].innerHTML += `<div class="box-categoria" style="background: #${resposta[dado].cor}">${resposta[dado].categoria}</div>`;
                     }
                 }
             });

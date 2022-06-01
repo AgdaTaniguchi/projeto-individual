@@ -547,7 +547,7 @@ section.jogo .container-avaliacoes .box-avaliacao .nota{
 }
 
 section.jogo .container-avaliacoes .box-avaliacao .nota-barra{
-    width: 50%;
+    width: 0;
     display: block;
     position: relative;
     top: -38px;

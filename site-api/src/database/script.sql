@@ -35,7 +35,7 @@ CREATE TABLE Avaliacao(
     notaAudio DECIMAL(4, 2) CHECK(notaAudio >= 0 AND notaAudio <= 10),
     notaVisual DECIMAL(4, 2) CHECK(notaVisual >= 0 AND notaVisual <= 10),
     notaJogabilidade DECIMAL(4, 2) CHECK(notaJogabilidade >= 0 AND notaJogabilidade <= 10),
-    notaCampanha DECIMAL(4, 2) CHECK(notaCampanha >= 0 AND notaCampanha <= 10),
+    notaHistoria DECIMAL(4, 2) CHECK(notaHistoria >= 0 AND notaHistoria <= 10),
     notaDiversao DECIMAL(4, 2) CHECK(notaDiversao >= 0 AND notaDiversao <= 10)
 );
 

@@ -15,4 +15,12 @@ router.get("/pegarAvaliacoesJogo", function(req, res){
     jogosController.pegarAvaliacoesJogo(req, res);
 });
 
+router.post("/avaliarJogo", function(req, res){
+    jogosController.avaliarJogo(req, res);
+});
+
+router.post("/atualizarAvaliacaoJogo", function(req, res){
+    jogosController.atualizarAvaliacaoJogo(req, res);
+});
+
 module.exports = router;

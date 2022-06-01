@@ -37,7 +37,21 @@ function pegarCategoriasJogo(idJogo){
 }
 
 function pegarAvaliacoesJogo(idJogo){
-    let comando = `SELECT nick, dataAvaliacao, comentario, notaAudio, notaVisual, notaJogabilidade, notaCampanha, notaDiversao FROM Avaliacao INNER JOIN usuario ON idUsuario = fkUsuario WHERE fkJogo = ${idJogo} ORDER BY dataAvaliacao DESC`;
+    const comando = `SELECT idUsuario, nick, dataAvaliacao, comentario, notaAudio, notaVisual, notaJogabilidade, notaHistoria, notaDiversao FROM Avaliacao INNER JOIN usuario ON idUsuario = fkUsuario WHERE fkJogo = ${idJogo} ORDER BY dataAvaliacao DESC`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
+function avaliarJogo(audio, visual, jogabilidade, historia, diversao, comentario, idJogo, idUsuario){
+    const comando = `INSERT INTO avaliacao (fkJogo, fkUsuario, dataAvaliacao, comentario, notaAudio, notaVisual, notaJogabilidade, notaHistoria, notaDiversao) VALUES (${idJogo}, ${idUsuario}, NOW(), '${comentario}', ${audio}, ${visual}, ${jogabilidade}, ${historia}, ${diversao})`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
+function atualizarAvaliacaoJogo(audio, visual, jogabilidade, historia, diversao, comentario, idJogo, idUsuario){
+    const comando = `UPDATE avaliacao SET notaAudio = ${audio}, notaVisual = ${visual}, notaJogabilidade = ${jogabilidade}, notaHistoria = ${historia}, notaDiversao = ${diversao}, comentario = '${comentario}', dataAvaliacao = NOW() WHERE fkJogo = ${idJogo} AND fkUsuario = ${idUsuario}`;
 
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
@@ -48,5 +62,7 @@ module.exports = {
     listarCategorias,
     pegarInfoJogo,
     pegarCategoriasJogo,
-    pegarAvaliacoesJogo
+    pegarAvaliacoesJogo,
+    avaliarJogo,
+    atualizarAvaliacaoJogo,
 }

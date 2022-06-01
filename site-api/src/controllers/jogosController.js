@@ -65,8 +65,106 @@ function pegarAvaliacoesJogo(req, res){
     });
 }
 
+function avaliarJogo(req, res){
+    const audio = req.body.notaAudio;
+    const visual = req.body.notaVisual;
+    const jogabilidade = req.body.notaJogabilidade;
+    const historia = req.body.notaHistoria;
+    const diversao = req.body.notaDiversao;
+    const comentario = req.body.comentario;
+    const idJogo = req.body.idJogo;
+    const idUsuario = req.body.idUsuario;
+
+    if(audio == undefined){
+        res.status(400).send("Preencha a nota do áudio corretamente!");
+    }
+    else if(visual == undefined){
+        res.status(400).send("Preencha a nota do visual corretamente!");
+    }
+    else if(jogabilidade == undefined){
+        res.status(400).send("Preencha a nota da jogabilidade corretamente!");
+    }
+    else if(historia == undefined){
+        res.status(400).send("Preencha a nota da historia corretamente!");
+    }
+    else if(diversao == undefined){
+        res.status(400).send("Preencha a nota da diversão corretamente!");
+    }
+    else if(comentario == undefined){
+        res.status(400).send("Preencha o comentário corretamente!");
+    }
+    else if(idJogo == undefined){
+        res.status(400).send("ID do jogo não reconhecido!");
+    }
+    else if(idUsuario == undefined){
+        res.status(400).send("ID do usuário não reconhecido!");
+    }
+    else{
+        jogosModel.avaliarJogo(audio, visual, jogabilidade, historia, diversao, comentario, idJogo, idUsuario)
+        .then((resultado) => {
+            res.json(resultado);
+        })
+        .catch((erro) => {
+            console.log(erro);
+            console.log(`Houve um erro ao pegar as avaliações do jogo! Erro: ${erro.sqlMessage}`);
+            res.status(500).json(erro.sqlMessage);
+        });
+    }
+
+}
+
+function atualizarAvaliacaoJogo(req, res){
+    const audio = req.body.notaAudio;
+    const visual = req.body.notaVisual;
+    const jogabilidade = req.body.notaJogabilidade;
+    const historia = req.body.notaHistoria;
+    const diversao = req.body.notaDiversao;
+    const comentario = req.body.comentario;
+    const idJogo = req.body.idJogo;
+    const idUsuario = req.body.idUsuario;
+
+    if(audio == undefined){
+        res.status(400).send("Preencha a nota do áudio corretamente!");
+    }
+    else if(visual == undefined){
+        res.status(400).send("Preencha a nota do visual corretamente!");
+    }
+    else if(jogabilidade == undefined){
+        res.status(400).send("Preencha a nota da jogabilidade corretamente!");
+    }
+    else if(historia == undefined){
+        res.status(400).send("Preencha a nota da historia corretamente!");
+    }
+    else if(diversao == undefined){
+        res.status(400).send("Preencha a nota da diversão corretamente!");
+    }
+    else if(comentario == undefined){
+        res.status(400).send("Preencha o comentário corretamente!");
+    }
+    else if(idJogo == undefined){
+        res.status(400).send("ID do jogo não reconhecido!");
+    }
+    else if(idUsuario == undefined){
+        res.status(400).send("ID do usuário não reconhecido!");
+    }
+    else{
+        jogosModel.atualizarAvaliacaoJogo(audio, visual, jogabilidade, historia, diversao, comentario, idJogo, idUsuario)
+        .then((resultado) => {
+            res.json(resultado);
+        })
+        .catch((erro) => {
+            console.log(erro);
+            console.log(`Houve um erro ao pegar as avaliações do jogo! Erro: ${erro.sqlMessage}`);
+            res.status(500).json(erro.sqlMessage);
+        });
+    }
+
+}
+
 module.exports = {
     listarJogos,
     pegarInfoJogo,
-    pegarAvaliacoesJogo
+    pegarAvaliacoesJogo,
+    avaliarJogo,
+    atualizarAvaliacaoJogo,
 }

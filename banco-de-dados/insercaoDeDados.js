@@ -1,32 +1,61 @@
 const lista_jogos = [
+    // {
+    //     nome: "minecraft",
+    //     descricao: "Joguinho legal",
+    //     desenvolvedora: "Mojang",
+    //     categorias : [
+    //         {
+    //             categoria: "Simulação"
+    //         },
+    //         {
+    //             categoria: "Ação"
+    //         },
+    //         {
+    //             categoria: "Um jogador"
+    //         },
+    //     ],
+    // },
+    // {
+    //     nome: "valorant",
+    //     descricao: "FPS tático",
+    //     desenvolvedora: "Riot",
+    //     categorias : [
+    //         {
+    //             categoria: "FPS"
+    //         },
+    //     ],
+    // },
+    // {
+    //     nome: "overwatch",
+    //     descricao: "fps",
+    //     desenvolvedora: "Blizzard",
+    //     categorias : [
+    //         {
+    //             categoria: "FPS"
+    //         },
+    //         {
+    //             categoria: "Simulação"
+    //         },
+    //     ],
+    // },
     {
-        nome: "minecraft",
-        descricao: "Joguinho legal",
-        desenvolvedora: "Mojang",
+        nome: "portal 2",
+        descricao: "Jogo top demais, nossa senhora, que jogo bom",
+        desenvolvedora: "Blizzard",
         categorias : [
-            {
-                categoria: "Simulação"
-            },
-            {
-                categoria: "Ação"
-            },
             {
                 categoria: "Um jogador"
             },
-        ],
-    },
-    {
-        nome: "valorant",
-        descricao: "FPS tático",
-        desenvolvedora: "Riot",
-        categorias : [
             {
-                categoria: "FPS"
+                categoria: "Multijogador"
+            },
+            {
+                categoria: "Simulação"
             },
         ],
     },
     {
-        nome: "overwatch",
+        nome: "league of legends",
         descricao: "fps",
         desenvolvedora: "Blizzard",
         categorias : [
