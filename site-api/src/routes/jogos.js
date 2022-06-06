@@ -15,6 +15,14 @@ router.get("/pegarAvaliacoesJogo", function(req, res){
     jogosController.pegarAvaliacoesJogo(req, res);
 });
 
+router.get("/sugerirJogos", function(req, res){
+    jogosController.sugerirJogos(req, res);
+});
+
+router.get("/historicoAvaliacao", function(req, res){
+    jogosController.historicoAvaliacao(req, res);
+});
+
 router.post("/avaliarJogo", function(req, res){
     jogosController.avaliarJogo(req, res);
 });

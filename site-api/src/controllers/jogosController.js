@@ -1,7 +1,9 @@
 const jogosModel = require("../models/jogosModel");
 
 function listarJogos(req, res){
-    jogosModel.listarJogos()
+    const ordem = req.query.ordem || undefined;
+    const filtro = req.query.filtro || undefined;
+    jogosModel.listarJogos(filtro, ordem)
     .then((resultado) => {
         if(resultado.length == 0){
             res.status(403).send("Nenhum jogo cadastrado no banco de dados!");
@@ -158,7 +160,37 @@ function atualizarAvaliacaoJogo(req, res){
             res.status(500).json(erro.sqlMessage);
         });
     }
+}
 
+function sugerirJogos(req, res){
+    const idUsuario = req.query.idUsuario;
+    jogosModel.sugerirJogos(idUsuario)
+    .then((resultado) => {
+        if(resultado.length == 0){
+            res.status(403).send("Nenhum jogo cadastrado!");
+        }
+        else{
+            res.json(resultado);
+        }
+    })
+    .catch((erro) =>{
+        console.log(erro);
+        console.log(`Houve um erro ao sugerir os jogos! Erro: ${erro.sqlMessage}`);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function historicoAvaliacao(req, res){
+    const idUsuario = req.query.idUsuario;
+    jogosModel.historicoAvaliacao(idUsuario)
+    .then((resultado) => {
+        res.json(resultado);
+    })
+    .catch((erro) =>{
+        console.log(erro);
+        console.log(`Houve um erro ao sugerir os jogos! Erro: ${erro.sqlMessage}`);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 module.exports = {
@@ -167,4 +199,6 @@ module.exports = {
     pegarAvaliacoesJogo,
     avaliarJogo,
     atualizarAvaliacaoJogo,
+    sugerirJogos,
+    historicoAvaliacao,
 }

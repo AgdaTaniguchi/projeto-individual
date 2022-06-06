@@ -24,14 +24,12 @@
             </nav>
         </header>
         <main>
-            <section class="perfil">
-                <!-- Fazer sugestões de jogos de acordo com a categoria dos jogos que a pessoa for sugerindo -->
+            <section class="painel">
                 <div class="container">
                     <div class="menu-lateral">
                         <h3>Jogos</h3>
                         <ul>
                             <li><a href="#cadastrarJogo">Cadastrar jogo</a></li>
-                            <li><a href="#removerJogo">Remover jogo</a></li>
                             <li><a href="#listarJogos">Listar jogos</a></li>
                         </ul>
                         <h3>Sugestões</h3>
@@ -45,7 +43,7 @@
                         </ul>
                     </div>
                     <div class="conteudo">
-                        <div id="cadastrarJogos" class="parte-conteudo">
+                        <div id="cadastrarJogo" class="parte-conteudo">
                             <h1 style="color: var(--cor1)">Cadastrar jogo</h1>
                             <div class="formulario">
                                 <div class="box-input">
@@ -63,17 +61,85 @@
                                 <div class="box-input box-botao">
                                     <button onclick="atualizar()">Atualizar</button>
                                 </div>
-                                <div id="alerta"></div>
+                                <div id="alertaCadastrarJogo" class="alerta"></div>
                             </div>
                         </div>
-                        <div id="sugestoes" class="parte-conteudo">
-                            <h1>Jogos para você</h1>
-                            <div class="jogo">
+                        <div id="listarJogos" class="parte-conteudo">
+                            <h1 style="color: var(--cor1)">Listar jogos</h1>
+                            <div class="formulario">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome do jogo</th>
+                                            <th>Categorias</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Minecraft</td>
+                                            <td class="categorias-jogo">
+                                                <div class="box-categoria">Puzzle</div>
+                                                <div class="box-categoria">Simulador</div>
+                                            </td>
+                                            <td>
+                                                <button>Remover jogo</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="alertaListarJogos" class="alerta"></div>
                             </div>
                         </div>
-                        <div id="historico" class="parte-conteudo">
-                            <h1>Últimos jogos avaliados</h1>
-                            <div class="jogo"></div>
+                        <div id="listarSugestoes" class="parte-conteudo">
+                            <h1 style="color: var(--cor1)">Listar sugestões</h1>
+                            <div class="formulario">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome do jogo</th>
+                                            <th>Categoria</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Minecraft</td>
+                                            <td class="categorias-jogo">
+                                                <div class="box-categoria">Puzzle</div>
+                                            </td>
+                                            <td>
+                                                <button>Remover sugestão</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="alertaListarSugestoes" class="alerta"></div>
+                            </div>
+                        </div>
+                        <div id="listarUsuarios" class="parte-conteudo">
+                            <h1 style="color: var(--cor1)">Listar usuários</h1>
+                            <div class="formulario">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome do usuário</th>
+                                            <th>Nick</th>
+                                            <th>E-mail</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Agda Taniguchi</td>
+                                            <td>adjasente</td>
+                                            <td>agdatany@gmail.com</td>
+                                            <td><button>Remover usuário</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="alertaListarUsuarios" class="alerta"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -196,6 +196,11 @@ function avaliarJogo(){
         return false;
     }
 
+    if(comentario.length > 256){
+        alertar(`O comentário está muito grande! (${comentario.length}/256)`);
+        return false;
+    }
+
     if(sessionStorage.ID_USUARIO == undefined){
         window.location = "cadastrar.html";
         return false;
@@ -257,6 +262,11 @@ function atualizarAvaliacaoJogo(){
 
     if(notaAudio < 0 || notaAudio > 10 || notaVisual < 0 || notaVisual > 10 || notaJogabilidade < 0 || notaJogabilidade > 10 || notaHistoria < 0 || notaHistoria > 10 || notaDiversao < 0 || notaDiversao > 10){
         alertar("As notas devem ser entre 0 e 10!");
+        return false;
+    }
+
+    if(comentario.length > 256){
+        alertar(`O comentário está muito grande! (${comentario.length}/256)`);
         return false;
     }
 

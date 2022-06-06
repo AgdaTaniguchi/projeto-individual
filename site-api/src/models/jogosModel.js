@@ -1,14 +1,49 @@
 const database = require("../database/config");
 
 function listarJogos(filtrar, ordenar = "idJogo"){
-    let comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J LEFT JOIN JogoCategoria ON idJogo = fkJogo LEFT JOIN Categoria C ON idCategoria = fkCategoria `;
-    
-    if(filtrar){
-        comando += `WHERE C.nome = '${filtrar}' `;
-    }
+    let comando;
 
-    if(ordenar){
-        comando += `ORDER BY ${ordenar} `;
+    if(ordenar == "maisAvaliados"){
+        comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM (
+            SELECT idJogo, J.nome, COUNT(A.fkJogo) AS 'quantidade' FROM Jogo J
+            LEFT JOIN Avaliacao A ON A.fkJogo = idJogo
+            GROUP BY idJogo
+        ) AS J
+        LEFT JOIN JogoCategoria ON idJogo = fkJogo
+        LEFT JOIN Categoria C ON idCategoria = fkCategoria `;
+
+        if(filtrar != 'undefined' && filtrar != 'todas'){
+            comando += `WHERE C.nome = '${filtrar}' `;
+        }
+
+        comando += 'ORDER BY quantidade DESC';
+    }
+    else if(ordenar == "menosAvaliados"){
+        comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM (
+            SELECT idJogo, J.nome, COUNT(A.fkJogo) AS 'quantidade' FROM Jogo J
+            LEFT JOIN Avaliacao A ON A.fkJogo = idJogo
+            GROUP BY idJogo
+            ORDER BY COUNT(A.fkJogo)
+        ) AS J
+        LEFT JOIN JogoCategoria ON idJogo = fkJogo
+        LEFT JOIN Categoria C ON idCategoria = fkCategoria `;
+
+        if(filtrar != 'undefined' && filtrar != 'todas'){
+            comando += `WHERE C.nome = '${filtrar}' `;
+        }
+
+        comando += 'ORDER BY quantidade';
+    }
+    else{
+        comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J LEFT JOIN JogoCategoria ON idJogo = fkJogo LEFT JOIN Categoria C ON idCategoria = fkCategoria `;
+        
+        if(filtrar != 'undefined' && filtrar != 'todas'){
+            comando += `WHERE C.nome = '${filtrar}' `;
+        }
+    
+        if(ordenar){
+            comando += `ORDER BY ${ordenar} `;
+        }
     }
     
     console.log(`Executando a instrução SQL: ${comando}`);
@@ -57,6 +92,41 @@ function atualizarAvaliacaoJogo(audio, visual, jogabilidade, historia, diversao,
     return database.executar(comando);
 }
 
+function sugerirJogos(idUsuario){
+    const comando = `
+        SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Jogo J
+        INNER JOIN JogoCategoria ON fkJogo = idJogo
+        INNER JOIN Categoria C ON fkCategoria = idCategoria
+        WHERE C.nome = (
+            SELECT nome FROM (
+                SELECT C.nome, COUNT(*) AS quantidade FROM Avaliacao A
+                INNER JOIN Jogo J ON idJogo = A.fkjogo
+                INNER JOIN JogoCategoria JC ON JC.fkJogo = idJogo
+                INNER JOIN Categoria C ON C.idCategoria = JC.fkCategoria
+                WHERE fkUsuario = ${idUsuario}
+                GROUP BY C.nome
+                ORDER BY quantidade DESC
+            ) AS categorias LIMIT 1
+        )
+        LIMIT 6
+    `;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
+function historicoAvaliacao(idUsuario){
+    const comando = `SELECT idJogo, J.nome AS jogo, C.nome AS categoria, cor FROM Avaliacao A
+    INNER JOIN Jogo J ON idJogo = A.fkjogo
+    INNER JOIN JogoCategoria JC ON JC.fkJogo = idJogo
+    INNER JOIN Categoria C ON C.idCategoria = JC.fkCategoria
+    WHERE fkUsuario = ${idUsuario}
+    ORDER BY dataAvaliacao DESC`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
 module.exports = {
     listarJogos,
     listarCategorias,
@@ -65,4 +135,6 @@ module.exports = {
     pegarAvaliacoesJogo,
     avaliarJogo,
     atualizarAvaliacaoJogo,
+    sugerirJogos,
+    historicoAvaliacao
 }

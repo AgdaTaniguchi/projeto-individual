@@ -2,7 +2,7 @@ const database = require("../database/config");
 
 function entrar(email, senha){
     console.log(`Acessei o usuarioModel. Function entrar(${email}, ${senha})`);
-    const comando = `SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}'`;
+    const comando = `SELECT * FROM Usuario WHERE email = '${email}' AND senha = MD5('${senha}')`;
     
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
@@ -10,7 +10,7 @@ function entrar(email, senha){
 
 function cadastrar(nome, nick, email, senha){
     console.log(`Acessei o usuarioModel. Function cadastrar(${nome}, ${nick}, ${email}, ${senha}`);
-    const comando = `INSERT INTO Usuario (nome, nick, email, senha) VALUES ('${nome}', '${nick}', '${email}', '${senha}')`;
+    const comando = `INSERT INTO Usuario (nome, nick, email, senha) VALUES ('${nome}', '${nick}', '${email}', MD5('${senha}'))`;
     
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);

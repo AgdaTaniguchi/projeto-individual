@@ -25,13 +25,11 @@
         </header>
         <main>
             <section class="perfil">
-                <!-- Fazer sugestões de jogos de acordo com a categoria dos jogos que a pessoa for sugerindo -->
                 <div class="container">
                     <div class="menu-lateral">
                         <h3>Menu</h3>
                         <ul>
                             <li><a href="#dados">Seus dados</a></li>
-                            <li><a href="#sugestoes">Sugestões de jogos</a></li>
                             <li><a href="#historico">Histórico de avaliações</a></li>
                             <li><a id="admMenu" style="display: none;" href="painel.html">Controle de jogos</a></li>
                             <li class="sair"><a href="index.html" onclick="sair()">Sair da conta</a></li>
@@ -56,17 +54,26 @@
                                 <div class="box-input box-botao">
                                     <button onclick="atualizar()">Atualizar</button>
                                 </div>
-                                <div id="alerta"></div>
-                            </div>
-                        </div>
-                        <div id="sugestoes" class="parte-conteudo">
-                            <h1>Jogos para você</h1>
-                            <div class="jogo">
+                                <div id="alerta" class="alerta"></div>
                             </div>
                         </div>
                         <div id="historico" class="parte-conteudo">
                             <h1>Últimos jogos avaliados</h1>
-                            <div class="jogo"></div>
+                            <div class="jogos-container">
+                                <div id="avisoNenhumJogo">
+                                    <p>Nenhum jogo avaliado ainda!</p>
+                                    <a href="jogos.html">Clique aqui para ver os jogos!</a>
+                                </div>
+                                <!-- <div class="jogo">
+                                    <img src="images/jogos/valorant.jpg" alt="">
+                                    <h3>Minecraft</h3>
+                                    <div class="categorias-jogo">
+                                        <div class="box-categoria">Lorem</div>
+                                        <div class="box-categoria">ipsum</div>
+                                        <div class="box-categoria">dolor</div>
+                                    </div>
+                                </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>

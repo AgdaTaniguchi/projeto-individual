@@ -12,7 +12,7 @@ function entrar(){
         return false;
     }
 
-    if(senhaVar.length < 6){
+    if(senhaVar.length < 4){
         alertar("E-mail e/ou senha inválido(s)!")
         return false;
     }

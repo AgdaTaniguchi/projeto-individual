@@ -25,37 +25,37 @@
         </header>
         <main>
             <section class="jogos">
-                <h1>Jogos</h1>
+                <h1>Lista de jogos</h1>
                 <div class="container">
                     <div class="box-esquerda">
                         <div class="caixa">
                             <h3>Ordenar por:</h3>
-                            <select id="ordenarJogos">
-                                <option value="ultimosAdicionados">Últimos adicionados</option>
-                                <option value="nome">Nome</option>
+                            <select id="ordenarJogos" onchange="obterJogos()">
+                                <option value="idJogo DESC">Últimos adicionados</option>
+                                <option value="jogo">Nome (A-Z)</option>
+                                <option value="jogo DESC">Nome (Z-A)</option>
                                 <option value="maisAvaliados">Mais avaliados</option>
                                 <option value="menosAvaliados">Menos avaliados</option>
-                                <option value="maiorNota">Maior nota</option>
-                                <option value="menorNota">Menor nota</option>
                             </select>
                         </div>
                         <div class="caixa">
                             <h3>Categorias</h3>
-                            <ul>
-                                <li onclick="filtrar()" value="1">Ação</li>
-                                <li onclick="filtrar()" value="2">Puzzle</li>
-                                <li onclick="filtrar()" value="3">FPS</li>
-                                <li onclick="filtrar()" value="4">Simulador</li>
-                                <li onclick="filtrar()" value="5">RPG</li>
-                                <li onclick="filtrar()" value="6">Um Jogador</li>
-                                <li onclick="filtrar()" value="7">Multijogador</li>
+                            <ul class="menu-categorias">
+                                <li onclick="alterarFiltro('todas')" style="color: var(--cor3);">Todas as categorias</li>
+                                <li onclick="alterarFiltro('ação')">Ação</li>
+                                <li onclick="alterarFiltro('puzzle')">Puzzle</li>
+                                <li onclick="alterarFiltro('fps')">FPS</li>
+                                <li onclick="alterarFiltro('simulacao')">Simulação</li>
+                                <li onclick="alterarFiltro('rpg')">RPG</li>
+                                <li onclick="alterarFiltro('um jogador')">Um Jogador</li>
+                                <li onclick="alterarFiltro('multijogador')">Multijogador</li>
                             </ul>
                         </div>
                     </div>
+                    <div id="loading">
+                        <div class="animacao"></div>
+                    </div>
                     <div class="jogos-container">
-                        <div id="loading">
-                            <div class="animacao"></div>
-                        </div>
                         <!-- <div class="jogo">
                             <img src="images/jogos/valorant.jpg" alt="">
                             <h3>Minecraft</h3>
@@ -80,23 +80,3 @@
 
 <script src="./js/jogos.js"></script>
 <script src="js/script.js"></script>
-
-<script>
-    function filtrar(){
-        idCategoria = event.target.value;
-        fetch(`jogos/filtrar?idCategoria=${idCategoria}`)
-        .then(((res) => {
-            if(res.ok){
-                res.json().then(function(resposta){
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                });
-            }
-            else{
-                console.error('Nenhum jogo encontrado ou erro na API');
-            }
-        }))
-        .catch((erro) => {
-            console.error(`Erro na obtenção dos jogos: ${erro.message}`);
-        });
-    }
-</script>

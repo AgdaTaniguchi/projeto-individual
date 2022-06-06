@@ -6,7 +6,7 @@ CREATE TABLE Usuario(
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     nick VARCHAR(30) NOT NULL UNIQUE,
-    senha VARCHAR(30) NOT NULL,
+    senha CHAR(32) NOT NULL,
     email VARCHAR(50) CHECK(email LIKE '%@%') UNIQUE,
     administrador BOOLEAN
 );
