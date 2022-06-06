@@ -507,6 +507,7 @@ section.perfil #avisoNenhumJogo a:hover{
 }
 
 section.painel .conteudo table{
+    text-transform: capitalize;
     width: 100%;
     border-collapse: collapse;
 }
@@ -522,6 +523,7 @@ section.painel .conteudo table tr th{
 
 section.painel .conteudo table tr td,
 section.painel .conteudo table tr th{
+    width: 33%;
     text-align: center;
     border: 2px solid var(--cor2);
     padding: 10px 5px;

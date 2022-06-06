@@ -3,10 +3,12 @@ window.onload = obterJogos();
 var filtro_categoria = "todas";
 
 function obterJogos(filtro){
+    document.querySelector(".jogos-container").style.display = "none";
     filtro = filtro_categoria;
     document.querySelector(".jogos-container").innerHTML = "";
     fetch(`jogos/listarJogos?ordem=${ordenarJogos.value}&filtro=${filtro}`).then((function(res){
         if(res.ok){
+            document.querySelector(".jogos-container").style.display = "grid";
             loading.style.display = "none";
             res.json().then(function(resposta){
                 // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);

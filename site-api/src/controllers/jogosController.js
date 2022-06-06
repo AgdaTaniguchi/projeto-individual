@@ -2,7 +2,7 @@ const jogosModel = require("../models/jogosModel");
 
 function listarJogos(req, res){
     const ordem = req.query.ordem || undefined;
-    const filtro = req.query.filtro || undefined;
+    const filtro = req.query.filtro || "todas";
     jogosModel.listarJogos(filtro, ordem)
     .then((resultado) => {
         if(resultado.length == 0){
