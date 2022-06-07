@@ -309,7 +309,6 @@ section.jogos .container{
 section.jogos .box-esquerda{
     width: 20%;
     min-width: 200px;
-    height: 80vh;
 }
 
 section.jogos .container .caixa{
