@@ -31,6 +31,7 @@ function cadastrar(){
 
     if(nomeVar.length < 3){
         alertar("O nome deve possuir, no mínimo, 3 caracteres.");
+        return false;
     }
 
     fetch("/usuario/cadastrar", {

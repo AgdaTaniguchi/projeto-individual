@@ -8,6 +8,7 @@
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <header>
@@ -30,7 +31,6 @@
                         <h3>Jogos</h3>
                         <ul>
                             <li><a href="#visaoGeralJogos">Visão geral</a></li>
-                            <li><a href="#cadastrarJogo">Cadastrar jogo</a></li>
                             <li><a href="#listarJogos">Listar jogos</a></li>
                         </ul>
                         <h3>Sugestões</h3>
@@ -48,24 +48,14 @@
                     <div class="conteudo">
                         <div id="visaoGeralJogos" class="parte-conteudo">
                             <h1>Visão geral dos jogos</h1>
+                            <div class="box">
+                                <h2>Top 5 jogos avaliados da semana</h2>
+                            </div>
                             <!-- Gráfico de quantidade de jogos avaliados por categoria -->
                             <!-- Top 5 jogos avaliados da semana -->
-                        </div>
-                        <div id="cadastrarJogo" class="parte-conteudo">
-                            <h1>Cadastrar jogo</h1>
-                            <div class="formulario">
-                                <div class="box-input">
-                                    <label for="nomeJogo">Nome do jogo:</label>
-                                    <input type="text" id="nomeJogo">
-                                </div>
-                                <div class="box-input">
-                                    <label for="categoriaJogo">Categoria do jogo:</label>
-                                    <input type="text" id="categoriaJogo">
-                                </div>
-                                <div class="box-input box-botao">
-                                    <button onclick="atualizar()">Atualizar</button>
-                                </div>
-                                <div id="alertaCadastrarJogo" class="alerta"></div>
+                            <div class="box box-grafico">
+                                <h2>Categorias mais avaliadas</h2>
+                                <canvas id="grafico"></canvas>
                             </div>
                         </div>
                         <div id="listarJogos" class="parte-conteudo">
