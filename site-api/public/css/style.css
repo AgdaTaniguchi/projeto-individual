@@ -505,6 +505,7 @@ section.perfil #avisoNenhumJogo a:hover{
     transition-duration: var(--transicao);
 }
 
+/* Painel */
 section.painel .conteudo table{
     text-transform: capitalize;
     width: 100%;
@@ -526,6 +527,43 @@ section.painel .conteudo table tr th{
     text-align: center;
     border: 2px solid var(--cor2);
     padding: 10px 5px;
+}
+
+section.painel .conteudo .box{
+    background: #2c2c2c;
+    border-radius: var(--borda-radius);
+    margin: 15px 0;
+    padding: 15px;
+}
+
+section.painel .conteudo h3{
+    margin-bottom: 15px;
+}
+
+section.painel .conteudo .kpis{
+    display: flex;
+    justify-content: space-between;
+}
+
+section.painel .conteudo .kpis .kpi{
+    background: #2c2c2c;
+    padding: 20px;
+    border-radius: var(--borda-radius);
+}
+
+section.painel .conteudo .kpis .kpi.w30{
+    width: 30%;
+}
+
+section.painel .conteudo .kpis .kpi.w50{
+    width: 45%;
+}
+
+section.painel .conteudo .kpis .kpi span{
+    font-size: 2rem;
+    display: block;
+    margin: 5px;
+    text-align: center;
 }
 
 /* Dados do jogo / Página do jogo */

@@ -33,45 +33,61 @@
                             <li><a href="#visaoGeralJogos">Visão geral</a></li>
                             <li><a href="#listarJogos">Listar jogos</a></li>
                         </ul>
-                        <h3>Sugestões</h3>
-                        <ul>
-                            <li><a href="#visaoGeralSugestoes">Visão geral</a></li>
-                            <li><a href="#listarSugestoes">Listar sugestões</a></li>
-                        </ul>
                         <h3>Usuários</h3>
                         <ul>
                             <li><a href="#visaoGeralUsuarios">Visão geral</a></li>
                             <li><a href="#listarUsuarios">Listar usuários</a></li>
-                            <li class="sair"><a href="index.html" onclick="sair()">Sair da conta</a></li>
+                            <li><a href="#listarSugestoes">Listar sugestões</a></li>
+                            <li class="sair"><a href="index.html" onclick="sessionStorage.clear();">Sair da conta</a></li>
                         </ul>
                     </div>
                     <div class="conteudo">
                         <div id="visaoGeralJogos" class="parte-conteudo">
                             <h1>Visão geral dos jogos</h1>
-                            <div class="box">
-                                <h2>Top 5 jogos avaliados da semana</h2>
+                            <div class="kpis">
+                                <div class="kpi w30">
+                                    <h5>Quantidade de jogos</h5>
+                                    <span id="kpiQtdJogos">12</span>
+                                </div>
+                                <div class="kpi">
+                                    <h5>Quantidade de categorias</h5>
+                                    <span id="kpiQtdCategorias">4</span>
+                                </div>
+                                <div class="kpi">
+                                    <h5>Quantidade de avaliações</h5>
+                                    <span id="kpiQtdAvaliacoes">2</span>
+                                </div>
                             </div>
-                            <!-- Gráfico de quantidade de jogos avaliados por categoria -->
-                            <!-- Top 5 jogos avaliados da semana -->
                             <div class="box box-grafico">
-                                <h2>Categorias mais avaliadas</h2>
-                                <canvas id="grafico"></canvas>
+                                <h3>Categorias mais avaliadas</h3>
+                                <canvas id="graficoJogosCategorias"></canvas>
                             </div>
                         </div>
                         <div id="listarJogos" class="parte-conteudo">
                             <h1>Listar jogos</h1>
                         </div>
-                        <div id="visaoGeralSugestoes" class="parte-conteudo">
-                            <h1>Visão geral das sugestões</h1>
-                        </div>
-                        <div id="listarSugestoes" class="parte-conteudo">
-                            <h1>Listar sugestões</h1>
-                        </div>
                         <div id="visaoGeralUsuarios" class="parte-conteudo">
                             <h1>Visão geral dos usuários</h1>
+                            <div class="kpis">
+                                <div class="kpi w50">
+                                    <h5>Quantidade de usuários</h5>
+                                    <span id="kpiQtdUsuarios">12</span>
+                                </div>
+                                <div class="kpi w50">
+                                    <h5>Quantidade de sugestões</h5>
+                                    <span id="kpiQtdSugestoes">15</span>
+                                </div>
+                            </div>
+                            <div class="box box-grafico">
+                                <h3>Novos usuários</h3>
+                                <canvas id="graficoNovosUsuarios"></canvas>
+                            </div>
                         </div>
                         <div id="listarUsuarios" class="parte-conteudo">
                             <h1>Listar usuários</h1>
+                        </div>
+                        <div id="listarSugestoes" class="parte-conteudo">
+                            <h1>Listar sugestões</h1>
                         </div>
                     </div>
                 </div>
