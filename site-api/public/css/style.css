@@ -22,6 +22,7 @@
 /* Padrões */
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 h1{
@@ -37,7 +38,7 @@ h3{
 section{
     width: 90%;
     max-width: 1336px;
-    margin: 30px auto;
+    margin: 50px auto;
 }
 
 /* Padrão de formulário */
@@ -245,6 +246,21 @@ section.home-meio .container{
 
 section.home-meio .container .texto, section.home-meio .container .imagem{
     width: 48%;
+    max-height: 35vh;
+}
+
+section.home-meio .container .imagem{
+    display: flex;
+    justify-content: center;
+}
+
+section.home-meio .container .imagem img.imagem-eu{
+    height: 35vh;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--cor3);
+    
 }
 
 section.home-meio .container .texto p{
@@ -253,6 +269,43 @@ section.home-meio .container .texto p{
 }
 
 section.home-meio .container .imagem img{
+    object-fit: contain;
+}
+
+section.top5 .jogos-container{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 15px;
+}
+
+section.top5 .jogos-container .jogo{
+    background: #2c2c2c;
+    height: 350px;
+    color: white;
+    text-decoration: none;
+    border-radius: var(--borda-radius);
+    transition-duration: var(--transicao);
+}
+
+section.top5 .jogos-container .jogo img{
+    border-radius: var(--borda-radius) var(--borda-radius) 0 0;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+section.top5 .jogos-container .jogo:hover{
+    transform: translateY(-10px);
+    transition-duration: var(--transicao);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+section.top5 .jogos-container .jogo h3{
+    margin: 7px 15px;
+}
+
+section.top5 .jogos-container .jogo img{
     width: 100%;
 }
 
@@ -507,26 +560,25 @@ section.perfil #avisoNenhumJogo a:hover{
 
 /* Painel */
 section.painel .conteudo table{
-    text-transform: capitalize;
     width: 100%;
-    border-collapse: collapse;
 }
 
 section.painel .conteudo table .categorias-jogo{
     justify-content: center;
 }
 
-section.painel .conteudo table tr th{
-    height: 50px;
-    background: var(--cor2);
-}
-
 section.painel .conteudo table tr td,
 section.painel .conteudo table tr th{
-    width: 33%;
+    width: 25%;
     text-align: center;
-    border: 2px solid var(--cor2);
+    background: #2c2c2c;
+    border-radius: var(--borda-radius);
     padding: 10px 5px;
+}
+
+section.painel .conteudo table tr th{
+    height: 50px;
+    background: #242424;
 }
 
 section.painel .conteudo .box{

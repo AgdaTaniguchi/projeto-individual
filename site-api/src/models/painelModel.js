@@ -35,9 +35,25 @@ function novosUsuarios(){
     return database.executar(comando);
 }
 
+function listarUsuarios(){
+    const comando = `SELECT dataCadastro, email, nick, nome FROM Usuario`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
+function listarSugestoes(){
+    const comando = `SELECT nick, email, JS.nome AS 'nome', categoria FROM JogoSugerido JS INNER JOIN Usuario ON fkUsuario = idUsuario`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
 module.exports = {
     pegarKpisJogos,
     jogosPorCategoria,
     pegarKpisUsuarios,
     novosUsuarios,
+    listarUsuarios,
+    listarSugestoes,
 }

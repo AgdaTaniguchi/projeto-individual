@@ -25,31 +25,46 @@
         </header>
         <main>
             <section class="home-meio sobre">
-                <h1>AvaliaOGame</h1>
                 <div class="container">
                     <div class="texto">
-                        <p>AvaliaOGame é um projeto criado em 2022 para jogadores conseguirem avaliar, ver avaliações e descobrir novos jogos. Disponibilizando várias maneiras de analisar cada jogo, seja por categoria, por nota de áudio, visual, de jogabilidade, da história do jogo ou por diversão do jogador.</p>
+                        <h1>AvaliaOGame</h1>
+                        <p>AvaliaOGame é um projeto criado em 2022 para jogadores conseguirem avaliar, ver avaliações e descobrir novos jogos. Disponibilizando várias maneiras de analisar cada jogo, seja por categoria, por nota de áudio, visual, jogabilidade, história do jogo ou por diversão do jogador.</p>
                         <p style="margin-bottom: 10px;">Ficou interessado?</p>
                         <a href=""><button>Fazer inscrição</button></a>
                     </div>
                     <div class="imagem">
-                        <img src="" alt="">
+                        <img src="images/logo2.png" alt="Logo do website (uma mão fazendo o símbolo de joinha com um fundo circular laranja)">
                     </div>
+                </div>
+            </section>
+            <section class="top5">
+                <h1>Top <span id="qtdJogos"></span> Jogos da Última Semana</h1>
+                <div class="jogos-container">
+                    <!-- <a href="#" class="jogo">
+                        <img src="images/jogos/valorant.jpg" alt="">
+                        <h3>Minecraft</h3>
+                        <div class="categorias-jogo">
+                            <div class="box-categoria">Lorem</div>
+                            <div class="box-categoria">ipsum</div>
+                            <div class="box-categoria">dolor</div>
+                            <div class="box-categoria">sit</div>
+                        </div>
+                    </a> -->
                 </div>
             </section>
             <section class="vantagens">
                 <h1>Vantagens</h1>
                 <div class="container-vantagens">
                     <div class="box">
-                        <img src="images/logo2.png">
+                        <img src="images/avalie_seus_jogos.svg">
                         <span>Avalie os seus jogos favoritos</span>
                     </div>
                     <div class="box">
-                        <img src="images/logo2.png">
+                        <img src="images/novos_jogos.svg">
                         <span>Descubra novos jogos</span>
                     </div>
                     <div class="box">
-                        <img src="images/logo2.png">
+                        <img src="images/veja_avaliacao.svg">
                         <span>Veja a avaliação de outros jogadores</span>
                     </div>
                 </div>
@@ -58,15 +73,15 @@
                 <h1>Desenvolvedora</h1>
                 <div class="container">
                     <div class="imagem">
-                        <img src="" alt="Desenvolvedora do site">
+                        <img class="imagem-eu" src="images/eu.jpg" alt="Desenvolvedora do site">
                     </div>
                     <div class="texto">
                         <p>Meu nome é Agda Taniguchi, tenho 17 anos, curso Ciência da Computação e adoro jogos. O principal gênero que eu jogo é FPS, mas eu sempre estou jogando jogos multiplayers com os meus amigos e minha namorada. Meus jogos favoritos são: Valorant, Overcooked 2 e Minecraft.</p>
                         <h3>Redes sociais</h3>
                         <ul class="redes">
-                            <li><a href="">Instagram</a></li>
-                            <li><a href="">Twitter</a></li>
-                            <li><a href="">Github</a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/adjasente/">Instagram</a></li>
+                            <li><a target="_blank" href="https://twitter.com/adjasente">Twitter</a></li>
+                            <li><a target="_blank" href="https://github.com/AgdaTaniguchi">Github</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,3 +93,38 @@
     </body>
 </html>
 <script src="js/script.js"></script>
+
+<script>
+
+    carregarTop5();
+
+    function carregarTop5(){
+        fetch(`jogos/pegarTop5`)
+        .then((res) => {
+            res.json().then((resposta) => {
+                let id_jogos = [];
+                const jogos_container = document.querySelector(".jogos-container");
+
+                for(let index = 0; index < resposta.length; index++){
+                    // Adicionando jogo
+                    if(id_jogos.indexOf(resposta[index].idJogo) == -1){
+                        id_jogos.push(resposta[index].idJogo);
+                        const nome_imagem = (((resposta[index].jogo).split(' ')).join('')).toLowerCase();
+                        jogos_container.innerHTML += `<a class="jogo" href="jogo.html?idJogo=${resposta[index].idJogo}"><img src="images/jogos/${nome_imagem}.jpg" alt=""><h3>${resposta[index].jogo}</h3><div class="categorias-jogo"><div class="box-categoria" style="background: #${resposta[index].cor}">${resposta[index].categoria}</div></div></a>`;
+                    }
+                    // Adicionando categoria
+                    else{
+                        let categorias = document.querySelectorAll(".categorias-jogo");
+                        categorias[categorias.length - 1].innerHTML += `<div class="box-categoria" style="background: #${resposta[index].cor}">${resposta[index].categoria}</div>`;
+                    }
+                }
+
+                qtdJogos.innerHTML = id_jogos.length;
+                document.querySelector('.jogos-container').style = `grid-template-columns: repeat(${id_jogos.length}, 1fr)`;
+            });
+        })
+        .catch((erro) => {
+            console.error(`Houve um erro ao carregar o top 5: ${erro.message}`);
+        });
+    }
+</script>

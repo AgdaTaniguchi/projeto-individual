@@ -193,6 +193,18 @@ function historicoAvaliacao(req, res){
     });
 }
 
+function pegarTop5(req, res){
+    jogosModel.pegarTop5()
+    .then((resultado) => {
+        res.json(resultado);
+    })
+    .catch((erro) =>{
+        console.log(erro);
+        console.log(`Houve um erro ao sugerir os jogos! Erro: ${erro.sqlMessage}`);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     listarJogos,
     pegarInfoJogo,
@@ -201,4 +213,5 @@ module.exports = {
     atualizarAvaliacaoJogo,
     sugerirJogos,
     historicoAvaliacao,
+    pegarTop5,
 }

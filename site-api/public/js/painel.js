@@ -6,21 +6,9 @@ window.onload = () => {
     
     visaoGeralUsuarios();
 
-    // listarSugestoes();
-    // listarUsuarios();
+    listarSugestoes();
+    listarUsuarios();
 }
-
-// function listarJogos(){
-//     fetch(`jogos/listarJogos`)
-//     .then((res) => {
-//         res.json().then((resposta) => {
-//             console.log(resposta);
-//         });
-//     })
-//     .catch((erro) => {
-//         console.error(`Erro na obtenção de jogos: ${erro.message}`);
-//     });
-// }
 
 function visaoGeralJogos(){
     fetch(`painel/pegarKpisJogos`)
@@ -86,7 +74,7 @@ function visaoGeralUsuarios(){
             const dataUsuarios = {
                 labels: [],
                 datasets: [{
-                    label: 'Quantidade de jogos avaliados',
+                    label: 'Quantidade de usuários',
                     data: [],
                     backgroundColor: ['#ff8906', '#ff7c1f', '#ff6f2f', '#ff623c', '#ff5647', '#fc4b52', '#f6405d', '#ee3867', '#e53170'],
                 }]
@@ -109,4 +97,46 @@ function visaoGeralUsuarios(){
     .catch((erro) => {
         console.error(`Erro na obtenção do gráfico dos usuários: ${erro.message}`)
     });
+}
+
+function listarUsuarios(){
+    fetch(`painel/listarUsuarios`)
+    .then((res) => {
+        res.json().then((resposta) => {
+            // console.log(resposta);
+
+            for(let index = 0; index < resposta.length; index++){
+                tableUsuarios.innerHTML += `<tr>
+                    <td>${resposta[index].nome}</td>
+                    <td>${resposta[index].nick}</td>
+                    <td>${resposta[index].email}</td>
+                    <td>${moment(resposta[index].dataCadastro).format('DD/MM/YYYY')}</td>
+                </tr>`;
+            }
+        });
+    })
+    .catch((erro) => {
+        console.error(`Erro na obtenção dos usuários: ${erro.message}`);
+    })
+}
+
+function listarSugestoes(){
+    fetch(`painel/listarSugestoes`)
+    .then((res) => {
+        res.json().then((resposta) => {
+            console.log(resposta);
+
+            for(let index = 0; index < resposta.length; index++){
+                tableSugestoes.innerHTML += `<tr>
+                    <td>${resposta[index].nick}</td>
+                    <td>${resposta[index].email}</td>
+                    <td>${resposta[index].nome}</td>
+                    <td>${resposta[index].categoria}</td>
+                </tr>`;
+            }
+        });
+    })
+    .catch((erro) => {
+        console.error(`Erro na obtenção dos usuários: ${erro.message}`);
+    })
 }

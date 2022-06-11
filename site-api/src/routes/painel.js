@@ -19,4 +19,12 @@ router.get("/novosUsuarios", function(req, res){
     painelController.novosUsuarios(req, res);
 });
 
+router.get("/listarUsuarios", function(req, res){
+    painelController.listarUsuarios(req, res);
+});
+
+router.get("/listarSugestoes", function(req, res){
+    painelController.listarSugestoes(req, res);
+});
+
 module.exports = router;

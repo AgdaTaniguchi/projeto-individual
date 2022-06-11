@@ -23,6 +23,10 @@ router.get("/historicoAvaliacao", function(req, res){
     jogosController.historicoAvaliacao(req, res);
 });
 
+router.get("/pegarTop5", function(req, res){
+    jogosController.pegarTop5(req, res);
+});
+
 router.post("/avaliarJogo", function(req, res){
     jogosController.avaliarJogo(req, res);
 });

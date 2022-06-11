@@ -31,7 +31,6 @@
                         <h3>Jogos</h3>
                         <ul>
                             <li><a href="#visaoGeralJogos">Visão geral</a></li>
-                            <li><a href="#listarJogos">Listar jogos</a></li>
                         </ul>
                         <h3>Usuários</h3>
                         <ul>
@@ -63,9 +62,6 @@
                                 <canvas id="graficoJogosCategorias"></canvas>
                             </div>
                         </div>
-                        <div id="listarJogos" class="parte-conteudo">
-                            <h1>Listar jogos</h1>
-                        </div>
                         <div id="visaoGeralUsuarios" class="parte-conteudo">
                             <h1>Visão geral dos usuários</h1>
                             <div class="kpis">
@@ -85,9 +81,45 @@
                         </div>
                         <div id="listarUsuarios" class="parte-conteudo">
                             <h1>Listar usuários</h1>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Nick</th>
+                                        <th>E-mail</th>
+                                        <th>Data de cadastro</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableUsuarios">
+                                    <!-- <tr>
+                                        <td>1</td>
+                                        <td>Agda Taniguchi</td>
+                                        <td>adjasente</td>
+                                        <td>agdatany@gmail.com</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
                         </div>
                         <div id="listarSugestoes" class="parte-conteudo">
                             <h1>Listar sugestões</h1>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nick</th>
+                                        <th>E-mail</th>
+                                        <th>Sugestão</th>
+                                        <th>Categoria</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableSugestoes">
+                                    <!-- <tr>
+                                        <td>1</td>
+                                        <td>Agda Taniguchi</td>
+                                        <td>adjasente</td>
+                                        <td>agdatany@gmail.com</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -99,5 +131,6 @@
     </body>
 </html>
 
+<script src="js/moment.js"></script>
 <script src="js/painel.js"></script>
 <script src="js/script.js"></script>

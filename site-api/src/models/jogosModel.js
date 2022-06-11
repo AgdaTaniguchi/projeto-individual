@@ -127,6 +127,22 @@ function historicoAvaliacao(idUsuario){
     return database.executar(comando);
 }
 
+function pegarTop5(){
+    const comando = `SELECT idJogo, J.nome AS 'jogo', C.nome AS 'categoria', cor FROM Jogo J
+    INNER JOIN JogoCategoria ON fkJogo = idJogo
+    INNER JOIN Categoria C ON fkCategoria = idCategoria
+    WHERE J.nome IN (
+        SELECT nome FROM Avaliacao
+        JOIN Jogo ON fkJogo = idJogo
+        WHERE DATE(dataAvaliacao) BETWEEN (CURRENT_DATE - INTERVAL 7 DAY) AND CURRENT_DATE
+        GROUP BY fkJogo
+        ORDER BY COUNT(fkJogo) DESC
+    )`;
+
+    console.log(`Executando a instrução SQL: ${comando}`);
+    return database.executar(comando);
+}
+
 module.exports = {
     listarJogos,
     listarCategorias,
@@ -136,5 +152,6 @@ module.exports = {
     avaliarJogo,
     atualizarAvaliacaoJogo,
     sugerirJogos,
-    historicoAvaliacao
+    historicoAvaliacao,
+    pegarTop5,
 }
