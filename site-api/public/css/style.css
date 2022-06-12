@@ -281,7 +281,7 @@ section.top5 .jogos-container{
 
 section.top5 .jogos-container .jogo{
     background: #2c2c2c;
-    height: 350px;
+    height: 220px;
     color: white;
     text-decoration: none;
     border-radius: var(--borda-radius);
@@ -291,11 +291,17 @@ section.top5 .jogos-container .jogo{
 section.top5 .jogos-container .jogo img{
     border-radius: var(--borda-radius) var(--borda-radius) 0 0;
     width: 100%;
-    height: 50%;
+    height: 70%;
     object-fit: cover;
 }
 
-section.top5 .jogos-container .jogo:hover{
+section.top5 .jogos-container .jogo-top{
+    color: white;
+    text-decoration: none;
+    transition-duration: var(--transicao);
+}
+
+section.top5 .jogos-container .jogo-top:hover{
     transform: translateY(-10px);
     transition-duration: var(--transicao);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);

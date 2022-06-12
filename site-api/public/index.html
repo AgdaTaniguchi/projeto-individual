@@ -40,16 +40,20 @@
             <section class="top5">
                 <h1>Top <span id="qtdJogos"></span> Jogos da Última Semana</h1>
                 <div class="jogos-container">
-                    <!-- <a href="#" class="jogo">
-                        <img src="images/jogos/valorant.jpg" alt="">
-                        <h3>Minecraft</h3>
-                        <div class="categorias-jogo">
-                            <div class="box-categoria">Lorem</div>
-                            <div class="box-categoria">ipsum</div>
-                            <div class="box-categoria">dolor</div>
-                            <div class="box-categoria">sit</div>
+                    <!-- <div class="jogo-top">
+                        <h2>Top 1</h2>
+                        <div class="jogo">
+                            <img src="images/jogos/counter-strikeglobaloffensive.jpg">
+                            <h3>Minecraft</h3>
                         </div>
-                    </a> -->
+                    </div>
+                    <div class="jogo-top">
+                        <h2>Top 2</h2>
+                        <div class="jogo">
+                            <img src="images/jogos/counter-strikeglobaloffensive.jpg">
+                            <h3>Minecraft</h3>
+                        </div>
+                    </div> -->
                 </div>
             </section>
             <section class="vantagens">
@@ -95,32 +99,28 @@
 <script src="js/script.js"></script>
 
 <script>
-
     carregarTop5();
 
     function carregarTop5(){
         fetch(`jogos/pegarTop5`)
         .then((res) => {
             res.json().then((resposta) => {
-                let id_jogos = [];
                 const jogos_container = document.querySelector(".jogos-container");
 
                 for(let index = 0; index < resposta.length; index++){
-                    // Adicionando jogo
-                    if(id_jogos.indexOf(resposta[index].idJogo) == -1){
-                        id_jogos.push(resposta[index].idJogo);
-                        const nome_imagem = (((resposta[index].jogo).split(' ')).join('')).toLowerCase();
-                        jogos_container.innerHTML += `<a class="jogo" href="jogo.html?idJogo=${resposta[index].idJogo}"><img src="images/jogos/${nome_imagem}.jpg" alt=""><h3>${resposta[index].jogo}</h3><div class="categorias-jogo"><div class="box-categoria" style="background: #${resposta[index].cor}">${resposta[index].categoria}</div></div></a>`;
-                    }
-                    // Adicionando categoria
-                    else{
-                        let categorias = document.querySelectorAll(".categorias-jogo");
-                        categorias[categorias.length - 1].innerHTML += `<div class="box-categoria" style="background: #${resposta[index].cor}">${resposta[index].categoria}</div>`;
-                    }
+                    const nome_imagem = (((resposta[index].nome).replace(':', '').split(' ')).join('')).toLowerCase();
+
+                    jogos_container.innerHTML += `<a href="jogo.html?idJogo=${resposta[index].idJogo}" class="jogo-top">
+                        <h2>Top ${index + 1}</h2>
+                        <div class="jogo">
+                            <img src="images/jogos/${nome_imagem}.jpg">
+                            <h3>${resposta[index].nome}</h3>
+                        </div>
+                    </a>`;
                 }
 
-                qtdJogos.innerHTML = id_jogos.length;
-                document.querySelector('.jogos-container').style = `grid-template-columns: repeat(${id_jogos.length}, 1fr)`;
+                qtdJogos.innerHTML = resposta.length;
+                document.querySelector('.jogos-container').style = `grid-template-columns: repeat(${resposta.length}, 1fr)`;
             });
         })
         .catch((erro) => {

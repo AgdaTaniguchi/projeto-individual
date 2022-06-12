@@ -2,7 +2,6 @@ window.onload = () => {
     Chart.defaults.color = "#ddd";
 
     visaoGeralJogos();
-    // listarJogos();
     
     visaoGeralUsuarios();
 

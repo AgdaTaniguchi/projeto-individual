@@ -103,7 +103,7 @@ function fecharModal(){
 }
 
 function preencherDados(resposta){
-    const nome_imagem = (((resposta[0].nome).split(' ')).join('')).toLowerCase();
+    const nome_imagem = (((resposta[0].nome).replace(':', '').split(' ')).join('')).toLowerCase();
     imagemJogo.src = `images/jogos/${nome_imagem}.jpg`;
 
     nomeJogo.innerHTML = resposta[0].nome;

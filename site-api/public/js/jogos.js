@@ -19,7 +19,7 @@ function obterJogos(filtro){
                     // Adicionando jogo
                     if(id_jogos.indexOf(resposta[dado].idJogo) == -1){
                         id_jogos.push(resposta[dado].idJogo);
-                        const nome_imagem = (((resposta[dado].jogo).split(' ')).join('')).toLowerCase();
+                        const nome_imagem = (((resposta[dado].jogo).replace(':', '').split(' ')).join('')).toLowerCase();
                         jogos_container.innerHTML += `<a class="jogo" href="jogo.html?idJogo=${resposta[dado].idJogo}"><img src="images/jogos/${nome_imagem}.jpg" alt=""><h3>${resposta[dado].jogo}</h3><div class="categorias-jogo"><div class="box-categoria" style="background: #${resposta[dado].cor}">${resposta[dado].categoria}</div></div></a>`;
                     }
                     // Adicionando categoria
