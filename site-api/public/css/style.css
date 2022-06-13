@@ -246,6 +246,7 @@ section.home-meio .container{
 
 section.home-meio .container .texto, section.home-meio .container .imagem{
     width: 48%;
+    min-height: 250px;
     max-height: 35vh;
 }
 

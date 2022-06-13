@@ -1,20 +1,20 @@
 const mysql = require("mysql2");
 
-// const mySqlConfig = {
-//     host: 'localhost',
-//     user: 'aluno',
-//     database: 'AvaliaOGame',
-//     password: 'sptech',
-//     port: 3306
-// }
-
 const mySqlConfig = {
     host: 'localhost',
-    user: 'root',
+    user: 'aluno',
     database: 'AvaliaOGame',
-    password: '1234',
-    port: 3307
+    password: 'sptech',
+    port: 3306
 }
+
+// const mySqlConfig = {
+//     host: 'localhost',
+//     user: 'root',
+//     database: 'AvaliaOGame',
+//     password: '1234',
+//     port: 3307
+// }
 
 function executar(comando){
     return new Promise(function (resolve, reject){

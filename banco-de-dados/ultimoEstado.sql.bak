@@ -1,4 +1,13 @@
 
+-- Usuários
+INSERT INTO Usuario VALUES (NULL, 'Agda Taniguchi', 'adjasente', MD5('12345'), 'agdatany@gmail.com', '2022-06-12', 1);
+INSERT INTO Usuario VALUES (NULL, 'Ricardo', 'ricardots6', MD5('12345'), 'ricardo@gmail.com', '2022-05-12', null);
+INSERT INTO Usuario VALUES (NULL, 'Maria', 'MariaLinda<3', MD5('12345'), 'maria@sptech.com', '2022-04-12', null);
+INSERT INTO Usuario VALUES (NULL, 'Rafael Petry', 'rafapetry23', MD5('12345'), 'rafael.petry@sptech.school', '2022-04-12', null);
+INSERT INTO Usuario VALUES (NULL, 'Rafael Raposo', 'rafarafarafarafa', MD5('12345'), 'rafa@rafael.com', '2022-03-12', null);
+INSERT INTO Usuario VALUES (NULL, 'sanchez', 'nicknameTop', MD5('12345'), 'sanchez@gmail.com', '2022-06-12', null);
+INSERT INTO Usuario VALUES (NULL, 'Ale agradece Agda', 'ObgAgdaTeAmo', MD5('12345'), 'agdavcehpft@agdaincrivel.com', '2022-03-12', null);
+
 -- Jogos
 INSERT INTO Jogo VALUES (NULL, 'minecraft', 'Minecraft é um jogo de construção e sobrevivência em mundo aberto, na qual os jogadores interajem com vários tipos de blocos num ambiente tridimensional. Neste ambiente, jogadores constroem estruturas criativas em vários modos de jogo.', 'Mojang Studios');
 INSERT INTO Jogo VALUES (NULL, 'valorant', 'Um jogo de tiro tático 5v5 gratuito da Riot Games.', 'Riot Games');
@@ -17,6 +26,11 @@ INSERT INTO Jogo VALUES (NULL, 'osu!', 'osu! é um jogo de ritmo gratuito desenv
 INSERT INTO Jogo VALUES (NULL, 'roblox', 'Roblox é uma plataforma de jogos MMOSG e Sandbox baseados normalmente em mundo aberto, multiplataforma e simulação que permite criar do zero seu próprio mundo virtual chamado de experiência ou place onde os milhares de jogadores da plataforma podem interagir sobre.', 'Roblox Coporation');
 INSERT INTO Jogo VALUES (NULL, 'raft', 'Sozinho ou com amigos, sua missão é sobreviver a uma aventura oceânica épica num mar perigoso! Reúna detritos para sobreviver, expanda sua jangada e tenha cuidado com os perigos do oceano! Presos em uma pequena balsa com nada além de um gancho feito de plástico velho, os jogadores acordam em um vasto oceano azul totalmente sozinho e sem terra à vista! Com a garganta seca e o estômago vazio, a sobrevivência não será fácil!', 'Redbeet Interactive');
 
+-- Jogos sugeridos
+INSERT INTO JogoSugerido VALUES (NULL, 'Tibia', 'naoInclusa', 5);
+INSERT INTO JogoSugerido VALUES (NULL, 'Osu!', 'naoInclusa', 5);
+INSERT INTO JogoSugerido VALUES (NULL, 'Roblox', 'naoInclusa', 5);
+
 -- Categorias
 INSERT INTO Categoria VALUES (NULL, 'Simulação', '710ee3');
 INSERT INTO Categoria VALUES (NULL, 'Um jogador', '06878a');
@@ -29,15 +43,21 @@ INSERT INTO Categoria VALUES (NULL, 'Esporte', 'd8e30e');
 INSERT INTO Categoria VALUES (NULL, 'Outros gêneros', '413f4a');
 INSERT INTO Categoria VALUES (NULL, 'RPG', 'e30e5f');
 
--- Usuários
-INSERT INTO Usuario VALUES (NULL, 'Agda Taniguchi', 'adjasente', MD5('12345'), 'agdatany@gmail.com', '2022-06-12', 1);
-INSERT INTO Usuario VALUES (NULL, 'Ricardo', 'ricardots6', MD5('12345'), 'ricardo@gmail.com', '2022-05-12', null);
-INSERT INTO Usuario VALUES (NULL, 'Maria', 'MariaLinda<3', MD5('12345'), 'maria@sptech.com', '2022-04-12', null);
-INSERT INTO Usuario VALUES (NULL, 'Rafael Petry', 'rafapetry23', MD5('12345'), 'rafael.petry@sptech.school', '2022-04-12', null);
-INSERT INTO Usuario VALUES (NULL, 'Rafael Raposo', 'rafarafarafarafa', MD5('12345'), 'rafa@rafael.com', '2022-03-12', null);
-INSERT INTO Usuario VALUES (NULL, 'sanchez', 'nicknameTop', MD5('12345'), 'sanchez@gmail.com', '2022-06-12', null);
-INSERT INTO Usuario VALUES (NULL, 'Ale agradece Agda', 'ObgAgdaTeAmo', MD5('12345'), 'agdavcehpft@agdaincrivel.com', '2022-03-12', null);
-INSERT INTO Usuario VALUES (NULL, 'Vitor Fernando', 'Vitu223', MD5('12345'), 'vitor,costa@gmail.com', '2022-06-13', null);
+-- Avaliações
+INSERT INTO Avaliacao VALUES (1, 1, '2022-06-12 14:53:01', 'Simplesmente o melhor jogo de todos!!! Não tem muito o que falar, totalmente perfeito. Foi por esse jogo que eu baixei meu primeiro editor de texto, Notepad++, tentando criar servidores para jogar com os meus amigos', 10.00, 10.00, 10.00, 10.00, 10.00);
+INSERT INTO Avaliacao VALUES (1, 2, '2022-06-12 13:15:11', 'Tudooooooo revolucionáriooooo', 10.00, 9.00, 10.00, 5.00, 10.00);
+INSERT INTO Avaliacao VALUES (1, 4, '2022-06-12 10:58:11', 'Pixels me incomodam.', 8.00, 9.00, 10.00, 9.00, 10.00);
+INSERT INTO Avaliacao VALUES (2, 1, '2022-06-12 07:12:23', 'Gosto muito desse jogo, principalmente quando estou em time com os meus amigos!', 9.50, 10.00, 7.00, 9.00, 7.00);
+INSERT INTO Avaliacao VALUES (2, 5, '2022-06-12 10:56:43', 'n', 0.00, 0.00, 10.00, 0.00, 0.00);
+INSERT INTO Avaliacao VALUES (2, 7, '2022-06-12 11:56:32', 'O jogo é ruim, mas me proporciona momentos incríveis', 10.00, 10.00, 10.00, 10.00, 10.00);
+INSERT INTO Avaliacao VALUES (4, 1, '2022-06-12 16:00:01', 'Gosto muito desse jogo, a Glados é tudo de bom, amo demais!!! E a parte multijogador então, nossa, joguei muito com a minha namorada', 10.00, 10.00, 10.00, 10.00, 10.00);
+INSERT INTO Avaliacao VALUES (5, 3, '2022-06-12 15:08:35', 'De nerd', 10.00, 4.50, 1.20, 3.40, 0.00);
+INSERT INTO Avaliacao VALUES (5, 6, '2022-06-12 12:17:53', 'muito bom, mas entrei em depressão', 9.10, 8.00, 7.00, 8.50, 2.00);
+INSERT INTO Avaliacao VALUES (8, 1, '2022-06-12 11:50:26', 'Descobri que gosto muito de jogar pelo Game Pass, fico horas jogando com a minha namorada!!! Só falta o time feminino brasileiro!', 10.00, 10.00, 7.00, 7.00, 10.00);
+INSERT INTO Avaliacao VALUES (9, 1, '2022-06-12 06:28:23', 'Gosto muito de jogar com os meus amigos8', 7.00, 8.00, 10.00, 6.00, 10.00);
+INSERT INTO Avaliacao VALUES (11, 1, '2022-06-12 08:21:12', 'Não curto muito, mas é legal de jogar com os amigos', 7.50, 5.60, 4.80, 5.50, 6.80);
+INSERT INTO Avaliacao VALUES (12, 1, '2022-06-12 10:26:34', 'Gosto muito de jogar, mas não tenho muita paciência pra ele às vezes', 10.00, 10.00, 8.00, 9.00, 8.00);
+INSERT INTO Avaliacao VALUES (16, 1, '2022-06-12 11:09:30', 'Amo esse jogo, ele é tudo pra mim', 10.00, 10.00, 10.00, 10.00, 10.00);
 
 -- Jogos Categorias
 INSERT INTO JogoCategoria VALUES (1, 1);
@@ -75,25 +95,3 @@ INSERT INTO JogoCategoria VALUES (14, 9);
 INSERT INTO JogoCategoria VALUES (15, 9);
 INSERT INTO JogoCategoria VALUES (12, 10);
 INSERT INTO JogoCategoria VALUES (13, 10);
-
--- Jogos sugeridos
-INSERT INTO JogoSugerido VALUES (NULL, 'Tibia', 'naoInclusa', 5);
-INSERT INTO JogoSugerido VALUES (NULL, 'Osu!', 'naoInclusa', 5);
-INSERT INTO JogoSugerido VALUES (NULL, 'Roblox', 'naoInclusa', 5);
-
--- Avaliações
-INSERT INTO Avaliacao VALUES (1, 1, '2022-06-12 14:53:01', 'Simplesmente o melhor jogo de todos!!! Não tem muito o que falar, totalmente perfeito. Foi por esse jogo que eu baixei meu primeiro editor de texto, Notepad++, tentando criar servidores para jogar com os meus amigos', 10.00, 10.00, 10.00, 10.00, 10.00);
-INSERT INTO Avaliacao VALUES (1, 2, '2022-06-12 13:15:11', 'Tudooooooo revolucionáriooooo', 10.00, 9.00, 10.00, 5.00, 10.00);
-INSERT INTO Avaliacao VALUES (1, 4, '2022-06-12 10:58:11', 'Pixels me incomodam.', 8.00, 9.00, 10.00, 9.00, 10.00);
-INSERT INTO Avaliacao VALUES (2, 1, '2022-06-12 07:12:23', 'Gosto muito desse jogo, principalmente quando estou em time com os meus amigos!', 9.50, 10.00, 7.00, 9.00, 7.00);
-INSERT INTO Avaliacao VALUES (2, 5, '2022-06-12 10:56:43', 'n', 0.00, 0.00, 10.00, 0.00, 0.00);
-INSERT INTO Avaliacao VALUES (2, 7, '2022-06-12 11:56:32', 'O jogo é ruim, mas me proporciona momentos incríveis', 10.00, 10.00, 10.00, 10.00, 10.00);
-INSERT INTO Avaliacao VALUES (4, 1, '2022-06-12 16:00:01', 'Gosto muito desse jogo, a Glados é tudo de bom, amo demais!!! E a parte multijogador então, nossa, joguei muito com a minha namorada', 10.00, 10.00, 10.00, 10.00, 10.00);
-INSERT INTO Avaliacao VALUES (5, 3, '2022-06-12 15:08:35', 'De nerd', 10.00, 4.50, 1.20, 3.40, 0.00);
-INSERT INTO Avaliacao VALUES (5, 6, '2022-06-12 12:17:53', 'muito bom, mas entrei em depressão', 9.10, 8.00, 7.00, 8.50, 2.00);
-INSERT INTO Avaliacao VALUES (8, 1, '2022-06-12 11:50:26', 'Descobri que gosto muito de jogar pelo Game Pass, fico horas jogando com a minha namorada!!! Só falta o time feminino brasileiro!', 10.00, 10.00, 7.00, 7.00, 10.00);
-INSERT INTO Avaliacao VALUES (9, 1, '2022-06-12 06:28:23', 'Gosto muito de jogar com os meus amigos8', 7.00, 8.00, 10.00, 6.00, 10.00);
-INSERT INTO Avaliacao VALUES (10, 8, '2022-06-13 10:07:48', 'Lindo, perfeito, atemporal, melhor joguinho da vida, amo, gosto ,uito', 9.00, 10.00, 8.00, 2.00, 10.00);
-INSERT INTO Avaliacao VALUES (11, 1, '2022-06-12 08:21:12', 'Não curto muito, mas é legal de jogar com os amigos', 7.50, 5.60, 4.80, 5.50, 6.80);
-INSERT INTO Avaliacao VALUES (12, 1, '2022-06-12 10:26:34', 'Gosto muito de jogar, mas não tenho muita paciência pra ele às vezes', 10.00, 10.00, 8.00, 9.00, 8.00);
-INSERT INTO Avaliacao VALUES (16, 1, '2022-06-12 11:09:30', 'Amo esse jogo, ele é tudo pra mim', 10.00, 10.00, 10.00, 10.00, 10.00);

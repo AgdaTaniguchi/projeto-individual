@@ -36,7 +36,7 @@ function novosUsuarios(){
 }
 
 function listarUsuarios(){
-    const comando = `SELECT dataCadastro, email, nick, nome FROM Usuario`;
+    const comando = `SELECT dataCadastro, email, nick, nome FROM Usuario ORDER BY dataCadastro DESC`;
 
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
