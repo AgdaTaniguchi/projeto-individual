@@ -30,13 +30,31 @@ function visaoGeralJogos(){
                 datasets: [{
                     label: 'Quantidade de jogos avaliados',
                     data: [],
-                    backgroundColor: ['#ff8906', '#ff7c1f', '#ff6f2f', '#ff623c', '#ff5647', '#fc4b52', '#f6405d', '#ee3867', '#e53170'],
-                }]
+                    backgroundColor: [],
+                },
+            ]
             };
             
+            var maior = 0;
             for(let index = 0; index < resposta.length; index++){
+                if(resposta[index].qtdJogos > maior && (resposta[index].nome != "Multijogador" && resposta[index].nome != "Um jogador")){
+                    maior = resposta[index].qtdJogos;
+                }
+            }
+            
+            for (let index = 0; index < resposta.length; index++) {
                 dataCategorias.labels.push(resposta[index].nome);
                 dataCategorias.datasets[0].data.push(resposta[index].qtdJogos);
+                
+                if(resposta[index].qtdJogos < 1 / 4 * maior){
+                    dataCategorias.datasets[0].backgroundColor.push('#FF8906');
+                }
+                else if(resposta[index].qtdJogos <= 1 / 2 * maior){
+                    dataCategorias.datasets[0].backgroundColor.push('#ff5647');
+                }
+                else{
+                    dataCategorias.datasets[0].backgroundColor.push('#E53170');
+                }
             }
             
             const config = {
@@ -123,7 +141,7 @@ function listarSugestoes(){
     fetch(`painel/listarSugestoes`)
     .then((res) => {
         res.json().then((resposta) => {
-            console.log(resposta);
+            // console.log(resposta);
 
             for(let index = 0; index < resposta.length; index++){
                 tableSugestoes.innerHTML += `<tr>

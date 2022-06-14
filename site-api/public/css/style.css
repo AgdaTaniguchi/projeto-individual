@@ -409,7 +409,7 @@ section.jogos .container .jogos-container, section.perfil .container .jogos-cont
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 300px;
     justify-items: center;
-    row-gap: 30px;
+    row-gap: 50px;
 }
 
 section.perfil .container .jogos-container{
@@ -419,7 +419,7 @@ section.perfil .container .jogos-container{
 section.jogos .container .jogos-container .jogo, section.perfil .container .jogos-container .jogo{
     width: 20%;
     min-width: 250px;
-    height: 300px;
+    height: 320px;
     color: white;
     text-decoration: none;
     background: #2c2c2c;
@@ -795,4 +795,24 @@ section.jogo .container-main .box-direita .info-jogo button{
     right: 0;
     z-index: 1;
     background: rgba(0, 0, 0, 0.4);
+}
+
+.legenda{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.legenda .box-legenda{
+    display: flex;
+    align-items: center;
+}
+
+.legenda .box-legenda .box-cor{
+    width: 40px;
+    height: 20px;
+    margin-right: 7px;
+    background: red;
+    border-radius: var(--borda-radius);
 }

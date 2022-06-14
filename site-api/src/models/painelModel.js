@@ -12,7 +12,8 @@ function jogosPorCategoria(){
         INNER JOIN Jogo ON A.fkJogo = idJogo
         INNER JOIN JogoCategoria JC ON JC.fkJogo = idJogo
         RIGHT JOIN Categoria C ON JC.fkCategoria = idCategoria
-        GROUP BY C.nome`;
+        GROUP BY C.nome
+        ORDER BY idCategoria DESC`;
     
     console.log(`Executando a instrução SQL: ${comando}`);
     return database.executar(comando);
